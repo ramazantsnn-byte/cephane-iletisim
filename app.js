@@ -159,13 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const opt = document.createElement('option');
       opt.value = item.name;
       opt.textContent = item.name;
-      opt.dataset.base = item.base;
       if (index === 0) opt.selected = true;
       valModel.appendChild(opt);
     });
 
     checkCustomModelVisibility();
-    computeLivePrice();
   }
 
   function checkCustomModelVisibility() {
@@ -176,53 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       valModelCustom.style.display = 'none';
     }
-  }
-
-  function computeLivePrice() {
-    if (!valModel || !valLivePrice) return;
-    
-    let base = 26000;
-    const selectedOption = valModel.options ? valModel.options[valModel.selectedIndex] : null;
-    if (selectedOption && selectedOption.dataset && selectedOption.dataset.base) {
-      base = parseFloat(selectedOption.dataset.base);
-    } else {
-      const modelName = valModel.value.toLowerCase();
-      for (const b in PHONE_DATABASE) {
-        const found = PHONE_DATABASE[b].find(m => modelName.includes(m.name.toLowerCase()));
-        if (found) {
-          base = found.base;
-          break;
-        }
-      }
-    }
-
-    let mult = 1.0;
-    if (valStorage) {
-      if (valStorage.value === '64 GB') mult *= 0.92;
-      else if (valStorage.value === '256 GB') mult *= 1.08;
-      else if (valStorage.value === '512 GB') mult *= 1.16;
-      else if (valStorage.value === '1 TB') mult *= 1.25;
-    }
-
-    if (valScreen) {
-      if (valScreen.value.includes('Kılcal')) mult *= 0.94;
-      else if (valScreen.value.includes('Kırık')) mult *= 0.72;
-      else if (valScreen.value.includes('Değişmiş')) mult *= 0.82;
-    }
-
-    if (valBattery) {
-      if (valBattery.value.includes('Servis')) mult *= 0.86;
-    }
-
-    if (valBody) {
-      if (valBody.value.includes('Ezik')) mult *= 0.92;
-      else if (valBody.value.includes('Arka Cam')) mult *= 0.82;
-    }
-
-    const low = Math.round((base * mult * 0.95) / 250) * 250;
-    const high = Math.round((base * mult * 1.06) / 250) * 250;
-    valLivePrice.textContent = `${low.toLocaleString('tr-TR')} ₺ - ${high.toLocaleString('tr-TR')} ₺`;
-    return `${low.toLocaleString('tr-TR')} ₺ - ${high.toLocaleString('tr-TR')} ₺`;
   }
 
   // Marka seçildiğinde modelleri yükle
@@ -236,22 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (valModel) {
     valModel.addEventListener('change', () => {
       checkCustomModelVisibility();
-      computeLivePrice();
     });
   }
 
-  if (valModelCustom) {
-    valModelCustom.addEventListener('input', computeLivePrice);
-  }
-
-  // Diğer form öğelerini dinle
-  [valStorage, valBattery, valScreen, valBody, valBoxInvoice].forEach(el => {
-    if (el) {
-      el.addEventListener('change', computeLivePrice);
-    }
-  });
-
-  // İlk açılışta modelleri doldur ve fiyatı hesapla
+  // İlk açılışta modelleri doldur
   if (valBrand) {
     populateModels(valBrand.value);
   }
@@ -274,39 +213,37 @@ document.addEventListener('DOMContentLoaded', () => {
       const box = valBoxInvoice ? valBoxInvoice.value : 'Kutulu ve Faturalı';
       const name = document.getElementById('valCustomerName').value.trim();
       const phone = document.getElementById('valCustomerPhone').value.trim();
-      const estimatedPrice = computeLivePrice();
 
       const msg = 
-`📱 *CEPHANE İLETİŞİM - CİHAZ NAKİT SATIŞ VE FİYAT TALEBİ* 📱
+`📱 *CEPHANE İLETİŞİM - İKİNCİ EL CİHAZ NAKİT SATIŞ VE FİYAT TALEBİ* 📱
 ----------------------------------------
-👤 *Müşteri Adı:* ${name}
+👤 *Müşteri:* ${name}
 📞 *Telefon:* ${phone}
 
-📱 *Cihaz Modeli:* ${brand} - ${model}
+📱 *Marka & Model:* ${brand} - ${model}
 💾 *Hafıza Kapasitesi:* ${storage}
 🔋 *Pil Sağlığı:* ${battery}
 🖥️ *Ekran Durumu:* ${screen}
 🛡️ *Kasa Kozmetiği:* ${body}
 📦 *Kutu & Fatura:* ${box}
-
-💰 *Sistem Tahmini Piyasa Değeri:* ${estimatedPrice}
-📍 *İşlem Şubesi:* CepHane İletişim (Esenyurt / Sivas Kongre Cad.)
+📍 *Şube:* CepHane İletişim (Esenyurt / Sivas Kongre Cad. No:54/A)
 ----------------------------------------
-💬 _Merhaba CepHane İletişim, sitenizden cihazım için ekspertiz formu doldurdum. Cihazımı Esenyurt mağazanızda nakite çevirmek için net teklifinizi bekliyorum._`;
+💬 _Merhaba CepHane İletişim, sitemizden cihazım için ekspertiz bilgilerini doldurdum. Bu cihaz kondisyonuna göre en yüksek nakit teklifinizi bekliyorum._`;
 
       const waUrl = `https://wa.me/${CEPHANE_PHONE}?text=${encodeURIComponent(msg)}`;
 
       const summaryHtml = `
         <strong>Müşteri:</strong> ${name} (${phone})<br>
         <strong>Cihaz:</strong> ${brand} - ${model} (${storage})<br>
-        <strong>Tahmini Değer:</strong> <span style="color:#00e5ff; font-weight:800;">${estimatedPrice}</span>
+        <strong>Kozmetik / Ekran:</strong> ${body} • ${screen}<br>
+        <strong>Kutu & Pil:</strong> ${box} • Pil: ${battery}
       `;
 
       openConfirmation(
-        'Fiyat Teklifiniz CepHane Ekibine İletildi! 🎉',
+        'Cihaz Bilgileriniz Hazırlandı! 📱',
         summaryHtml,
-        `Sayın <strong>${name}</strong>, cihaz bilgileriniz eksiksiz ekspertiz fişi olarak hazırlandı.<br><br>
-        <strong>15-20 dakika içerisinde</strong> CepHane İletişim ekibimiz WhatsApp üzerinden en yüksek nakit teklifini iletecektir.`,
+        `Sayın <strong>${name}</strong>, cihazınızın eksiksiz durum raporu oluşturuldu.<br><br>
+        WhatsApp üzerinden doğrudan <strong>CepHane İletişim merkez hattımıza</strong> yönlendiriliyorsunuz. Ekibimiz anında en yüksek nakit teklifini iletecektir.`,
         waUrl
       );
     });
