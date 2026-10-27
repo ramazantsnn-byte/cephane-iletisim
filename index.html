@@ -83,7 +83,7 @@
     .boot-status-text { font-size: 0.78rem; color: #94a3b8; min-height: 1.2rem; font-family: sans-serif; }
     .boot-home-bar { width: 120px; height: 5px; background: rgba(255, 255, 255, 0.4); border-radius: 99px; margin-top: auto; }
   </style>
-  <link rel="stylesheet" href="style.css?v=4.5_boot">
+  <link rel="stylesheet" href="style.css?v=4.6_holo">
 </head>
 <body>
 
@@ -185,6 +185,43 @@
 
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
+    <!-- ========================================================= -->
+    <!-- HOLOGRAPHIC CYBER CORE (LOGO ARKA PLAN ANİMASYONU)          -->
+    <!-- ========================================================= -->
+    <div class="hero-cyber-core" id="heroCyberCore" aria-hidden="true">
+      <!-- Expanding Sonar / Radar Pulse Waves -->
+      <div class="cyber-pulse-emitter">
+        <span class="cyber-pulse-wave wave-1"></span>
+        <span class="cyber-pulse-wave wave-2"></span>
+        <span class="cyber-pulse-wave wave-3"></span>
+      </div>
+
+      <!-- Cyber HUD Circular Rings (SVG) -->
+      <svg class="cyber-hud-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer Dashed Ring (Cyan) -->
+        <circle class="hud-ring-outer" cx="300" cy="300" r="270" stroke="rgba(0, 229, 255, 0.22)" stroke-width="1.5" stroke-dasharray="6 14" />
+        <!-- Middle Gold Ring -->
+        <circle class="hud-ring-mid" cx="300" cy="300" r="225" stroke="rgba(212, 175, 55, 0.28)" stroke-width="1.2" stroke-dasharray="32 12 6 12" />
+        <!-- Inner Micro Ticks Ring -->
+        <circle class="hud-ring-inner" cx="300" cy="300" r="185" stroke="rgba(0, 229, 255, 0.18)" stroke-width="1" stroke-dasharray="2 8" />
+        <!-- Crosshairs & Degree Markers -->
+        <line x1="300" y1="18" x2="300" y2="40" stroke="rgba(0, 229, 255, 0.5)" stroke-width="2" />
+        <line x1="300" y1="560" x2="300" y2="582" stroke="rgba(0, 229, 255, 0.5)" stroke-width="2" />
+        <line x1="18" y1="300" x2="40" y2="300" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
+        <line x1="560" y1="300" x2="582" y2="300" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
+        <!-- Corner Coordinates / HUD Labels -->
+        <text x="312" y="36" fill="rgba(0, 229, 255, 0.6)" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="1.5">SYS // CEPHANE.CORE</text>
+        <text x="312" y="575" fill="rgba(212, 175, 55, 0.6)" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="1.5">LAB // 30-MIN RAPID REPAIR</text>
+      </svg>
+
+      <!-- Centerpiece Holographic Floating Logo -->
+      <div class="cyber-holo-emblem" id="cyberHoloEmblem">
+        <div class="holo-glow-radial"></div>
+        <img src="assets/logo_gold_emblem.png" alt="" class="holo-emblem-img">
+        <div class="holo-scanline"></div>
+      </div>
+    </div>
+
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">
@@ -893,6 +930,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=4.5_boot"></script>
+  <script src="app.js?v=4.6_holo"></script>
 </body>
 </html>
