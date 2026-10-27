@@ -84,6 +84,47 @@ const PHONE_DATABASE = {
 document.addEventListener('DOMContentLoaded', () => {
 
   // -----------------------------------------------------------
+  // TELEFON AÇILIŞ BOOT SEREMONİSİ (CYBER-OLED PRELOADER)
+  // -----------------------------------------------------------
+  const phoneBootScreen = document.getElementById('phoneBootScreen');
+  const bootProgressFill = document.getElementById('bootProgressFill');
+  const bootStatusText = document.getElementById('bootStatusText');
+
+  if (phoneBootScreen && bootProgressFill && bootStatusText) {
+    // 1. Aşama: Donanım testi (%25)
+    setTimeout(() => {
+      bootProgressFill.style.width = '25%';
+    }, 150);
+
+    // 2. Aşama: Teknik Servis & Parça (%65)
+    setTimeout(() => {
+      bootProgressFill.style.width = '65%';
+      bootStatusText.textContent = '30 Dk Servis & Değerleme Modülü Hazır...';
+    }, 550);
+
+    // 3. Aşama: Tamamlandı (%100)
+    setTimeout(() => {
+      bootProgressFill.style.width = '100%';
+      bootStatusText.textContent = 'Hoş Geldiniz • CepHane İletişim';
+    }, 1050);
+
+    // 4. Kilit Açılma & Siteye Geçiş
+    const unlockPhone = () => {
+      phoneBootScreen.classList.add('boot-unlocked');
+      setTimeout(() => {
+        if (phoneBootScreen.parentNode) {
+          phoneBootScreen.remove();
+        }
+      }, 600);
+    };
+
+    setTimeout(unlockPhone, 1500);
+
+    // Kullanıcı beklemek istemezse ekrana dokunup anında geçebilir
+    phoneBootScreen.addEventListener('click', unlockPhone);
+  }
+
+  // -----------------------------------------------------------
   // MOBİL DRAWER MENÜ
   // -----------------------------------------------------------
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
