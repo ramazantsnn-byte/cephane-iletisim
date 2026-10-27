@@ -83,7 +83,7 @@
     .boot-status-text { font-size: 0.78rem; color: #94a3b8; min-height: 1.2rem; font-family: sans-serif; }
     .boot-home-bar { width: 120px; height: 5px; background: rgba(255, 255, 255, 0.4); border-radius: 99px; margin-top: auto; }
   </style>
-  <link rel="stylesheet" href="style.css?v=4.6_holo">
+  <link rel="stylesheet" href="style.css?v=5.0_lab">
 </head>
 <body>
 
@@ -153,6 +153,7 @@
       <div class="nav-links">
         <a href="#degerleme" class="nav-highlight"><i class="fa-solid fa-hand-holding-dollar"></i> Telefonunu Sat</a>
         <a href="#tamir-randevu" class="nav-repair-link"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> 30 Dk Tamir</a>
+        <a href="#servis-lab" class="nav-lab-link"><i class="fa-solid fa-microchip text-gold"></i> Servis Lab</a>
         <a href="#magaza"><i class="fa-solid fa-store"></i> Mağazamız</a>
         <a href="#vitrin">Cihaz Vitrini</a>
         <a href="#iletisim">İletişim & Konum</a>
@@ -177,6 +178,7 @@
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="#degerleme" class="mobile-nav-link text-cyan"><i class="fa-solid fa-hand-holding-dollar"></i> Telefonunu Sat (Nakit)</a>
     <a href="#tamir-randevu" class="mobile-nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> 30 Dk Tamir Randevusu</a>
+    <a href="#servis-lab" class="mobile-nav-link text-gold"><i class="fa-solid fa-microchip"></i> Dijital Servis Lab (Su Çıkarıcı & Takip)</a>
     <a href="#magaza" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Mağazamız & Google Fotoğrafları</a>
     <a href="#vitrin" class="mobile-nav-link"><i class="fa-solid fa-mobile-screen"></i> Vitrindeki Cihazlar</a>
     <a href="#iletisim" class="mobile-nav-link"><i class="fa-solid fa-location-dot"></i> İletişim & Konum</a>
@@ -681,6 +683,285 @@
   </section>
 
   <!-- ========================================================= -->
+  <!-- BÖLÜM 2.5: CEPHANE DİJİTAL SERVİS LABORATUVARI (ARAÇLAR)    -->
+  <!-- ========================================================= -->
+  <section class="section-wrapper section-lab-wrapper" id="servis-lab">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-microchip text-cyan"></i> Ücretsiz Donanım & Teşhis Üssü</span>
+        <h2 class="section-title">CepHane <span class="gradient-text">Dijital Servis Laboratuvarı</span></h2>
+        <p class="section-sub">Telefonunuzdaki su veya tozu ses dalgasıyla tahliye edin, arızanızı adım adım teşhis edin ve canlı tamir sürecinizi anlık takip edin.</p>
+      </div>
+
+      <!-- Lab Switcher Tabs -->
+      <div class="lab-switcher-tabs">
+        <button type="button" class="lab-tab-btn active" id="btnTabSpeaker" data-tab="panelSpeaker">
+          <i class="fa-solid fa-volume-high text-cyan"></i>
+          <span>
+            <strong>Hoparlör Su & Toz Çıkarıcı</strong>
+            <small>Sonic Ses Dalgası ile Tahliye</small>
+          </span>
+        </button>
+
+        <button type="button" class="lab-tab-btn" id="btnTabTracker" data-tab="panelTracker">
+          <i class="fa-solid fa-satellite-dish text-gold"></i>
+          <span>
+            <strong>Canlı Tamir Durumu Takip</strong>
+            <small>Fiş No veya Telefonla Sorgula</small>
+          </span>
+        </button>
+
+        <button type="button" class="lab-tab-btn" id="btnTabDiagnostic" data-tab="panelDiagnostic">
+          <i class="fa-solid fa-wand-magic-sparkles text-cyan"></i>
+          <span>
+            <strong>Akıllı Arıza Teşhis Sihirbazı</strong>
+            <small>Sorunu Belirle & Çözümü Gör</small>
+          </span>
+        </button>
+      </div>
+
+      <!-- TAB PANEL 1: HOPARLÖR SU VE TOZ ÇIKARICI -->
+      <div class="lab-panel active" id="panelSpeaker">
+        <div class="speaker-cleaner-card">
+          <div class="speaker-visual-wrapper">
+            <div class="speaker-cone-ambient"></div>
+            <div class="speaker-cone" id="speakerCone">
+              <i class="fa-solid fa-bullhorn speaker-icon"></i>
+              <div class="speaker-wave-pulse pulse-1"></div>
+              <div class="speaker-wave-pulse pulse-2"></div>
+              <div class="speaker-wave-pulse pulse-3"></div>
+            </div>
+          </div>
+
+          <div class="speaker-controls">
+            <div class="speaker-badge-bar">
+              <span class="badge-status-dot" id="speakerDot"></span>
+              <span id="speakerStatusLabel">Sistem Hazır • Ses Seviyenizi %100'e Getirin</span>
+            </div>
+
+            <h3 class="speaker-title">Akustik Rezonans ile Su & Toz Püskürtme</h3>
+            <p class="speaker-desc">
+              Telefonunuz suya düştüyse veya ahizeden ses boğuk geliyorsa; Web Audio API motorumuz hoparlör zarını yüksek genlikli 165Hz ses dalgasıyla titreştirerek sıvı ve toz parçacıklarını ızgaradan dışarı fırlatır.
+            </p>
+
+            <!-- Frekans Seçimi -->
+            <div class="freq-selector-group">
+              <span class="freq-label">Rezonans Frekansı:</span>
+              <div class="freq-pills">
+                <button type="button" class="freq-pill active" data-freq="165">165 Hz (Yoğun Su Tahliyesi)</button>
+                <button type="button" class="freq-pill" data-freq="250">250 Hz (Standart Temizleme)</button>
+                <button type="button" class="freq-pill" data-freq="400">400 Hz (Ahize & İnce Toz)</button>
+              </div>
+            </div>
+
+            <!-- Eylem Butonu -->
+            <div class="speaker-action-row">
+              <button type="button" class="btn btn-speaker-start" id="btnSpeakerAction">
+                <i class="fa-solid fa-play"></i> <span id="btnSpeakerText">Sesi Başlat & Suyu Tahliye Et (15 Sn)</span>
+              </button>
+            </div>
+
+            <div class="speaker-notice-box">
+              <i class="fa-solid fa-circle-info text-cyan"></i>
+              <div>
+                <strong>Usta Tavsiyesi:</strong> İşlem sırasında telefonu hoparlör ızgarası aşağı bakacak şekilde dik tutun ve hafifçe silkeleyin. Eğer 2-3 denemede düzelmezse ahize filtresi korozyona uğramış olabilir.
+                <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20telefonumun%20hoparlör/ahize%20sesi%20kısık,%20temizlik%20veya%20değişim%20ücreti%20nedir?" target="_blank" class="notice-link">
+                  WhatsApp'tan Ustaya Danışın <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL 2: CANLI TAMİR DURUMU TAKİP -->
+      <div class="lab-panel" id="panelTracker">
+        <div class="tracker-card">
+          <div class="tracker-search-box">
+            <div class="tracker-input-row">
+              <div class="tracker-input-wrap">
+                <i class="fa-solid fa-receipt text-cyan"></i>
+                <input type="text" id="trackerInput" class="tracker-input" placeholder="Servis Fiş No (Örn: CPH-8429) veya Telefon Numaranız">
+              </div>
+              <button type="button" class="btn btn-primary" id="btnQueryTracker">
+                <i class="fa-solid fa-magnifying-glass"></i> Durumu Sorgula
+              </button>
+            </div>
+            <div class="tracker-demo-pills">
+              <span>Hızlı Demo:</span>
+              <button type="button" class="demo-tag" data-code="CPH-8429">CPH-8429 (Ekran Montajı)</button>
+              <button type="button" class="demo-tag" data-code="CPH-5120">CPH-5120 (Batarya Değişimi)</button>
+              <button type="button" class="demo-tag" data-code="CPH-9044">CPH-9044 (Teslime Hazır)</button>
+            </div>
+          </div>
+
+          <!-- Canlı Sonuç Kartı -->
+          <div class="tracker-result-card" id="trackerResultBox">
+            <div class="tracker-ticket-header">
+              <div class="ticket-meta">
+                <span class="ticket-badge"><i class="fa-solid fa-shield-halved text-cyan"></i> Kaşeli Garanti Kapsamında</span>
+                <h4 class="ticket-device-title" id="trackDeviceTitle">iPhone 14 Pro — Orijinal Ekran Değişimi</h4>
+                <div class="ticket-details-row">
+                  <span><i class="fa-solid fa-hashtag text-cyan"></i> Fiş No: <strong id="trackTicketCode">CPH-8429</strong></span>
+                  <span><i class="fa-regular fa-clock text-cyan"></i> Teslim Alınma: <strong id="trackTime">Bugün, 14:15</strong></span>
+                  <span><i class="fa-solid fa-user-gear text-cyan"></i> Teknisyen: <strong>Murat Usta</strong></span>
+                </div>
+              </div>
+              <div class="ticket-status-pill status-in-progress" id="trackStatusBadge">
+                <span class="pulse-dot"></span> Onarım Bankoda Devam Ediyor
+              </div>
+            </div>
+
+            <!-- Stepper Aşamaları -->
+            <div class="repair-stepper" id="repairStepper">
+              <div class="step-item step-completed">
+                <div class="step-node"><i class="fa-solid fa-check"></i></div>
+                <div class="step-info">
+                  <strong>1. Cihaz Kabulü</strong>
+                  <small>Giriş kaydı & şifresiz form</small>
+                </div>
+              </div>
+              <div class="step-item step-completed">
+                <div class="step-node"><i class="fa-solid fa-check"></i></div>
+                <div class="step-info">
+                  <strong>2. Arıza & Amper Testi</strong>
+                  <small>Anakart ölçümleri yapıldı</small>
+                </div>
+              </div>
+              <div class="step-item step-active">
+                <div class="step-node"><span class="step-pulse-ring"></span><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <div class="step-info">
+                  <strong>3. Göz Önünde Onarım</strong>
+                  <small>Orijinal panel montajı</small>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-node">4</div>
+                <div class="step-info">
+                  <strong>4. 12 Nokta Kalibrasyon</strong>
+                  <small>TrueTone & Face ID testi</small>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-node">5</div>
+                <div class="step-info">
+                  <strong>5. Teslimata Hazır</strong>
+                  <small>Kaşeli garanti belgesiyle</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bilgi Notu & WhatsApp Canlı Soru -->
+            <div class="tracker-footer-row">
+              <div class="tracker-timer-note">
+                <i class="fa-solid fa-hourglass-half text-cyan"></i>
+                <span>Tahmini Kalan Süre: <strong id="trackEstTime">~12 Dakika</strong> (Dükkanda çayınızı içerken teslim)</span>
+              </div>
+              <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20CPH-8429%20numaralı%20cihazımın%20durumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn btn-outline-cyan btn-sm" id="trackWhatsAppBtn">
+                <i class="fa-brands fa-whatsapp"></i> Teknisyenle WhatsApp'tan Görüş
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL 3: AKILLI ARIZA TEŞHİS SİHİRBAZI -->
+      <div class="lab-panel" id="panelDiagnostic">
+        <div class="diagnostic-card">
+          <!-- Step 1: Kategori Seçimi -->
+          <div class="diag-step" id="diagStep1">
+            <h3 class="diag-title"><span class="step-num">1</span> Telefonunuzdaki Başlıca Şikayet Nedir?</h3>
+            <p class="diag-sub">Aşağıdaki donanım gruplarından karşılaştığınız sorunu seçin:</p>
+            
+            <div class="diag-category-grid">
+              <button type="button" class="diag-cat-card" data-cat="ekran">
+                <div class="diag-icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+                <strong>Ekran & Dokunmatik</strong>
+                <small>Kırık, çizgiler, basmama</small>
+              </button>
+              <button type="button" class="diag-cat-card" data-cat="sarj">
+                <div class="diag-icon-box"><i class="fa-solid fa-battery-half"></i></div>
+                <strong>Batarya & Şarj Almama</strong>
+                <small>Çabuk bitme, soket temassızlığı</small>
+              </button>
+              <button type="button" class="diag-cat-card" data-cat="kamera">
+                <div class="diag-icon-box"><i class="fa-solid fa-camera"></i></div>
+                <strong>Kamera & Cam Çatlağı</strong>
+                <small>Bulanıklık, titreme, siyah ekran</small>
+              </button>
+              <button type="button" class="diag-cat-card" data-cat="sivi">
+                <div class="diag-icon-box"><i class="fa-solid fa-droplet"></i></div>
+                <strong>Sıvı Teması / Açılmıyor</strong>
+                <small>Suya düşme, logoda kalma</small>
+              </button>
+              <button type="button" class="diag-cat-card" data-cat="ses">
+                <div class="diag-icon-box"><i class="fa-solid fa-volume-xmark"></i></div>
+                <strong>Ses / Ahize & Mikrofon</strong>
+                <small>Ses gitmiyor, az geliyor, cızırtı</small>
+              </button>
+              <button type="button" class="diag-cat-card" data-cat="sebeke">
+                <div class="diag-icon-box"><i class="fa-solid fa-signal"></i></div>
+                <strong>Şebeke & WiFi / Bluetooth</strong>
+                <small>Servis yok, WiFi butonu sönük</small>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Detay Sorusu (Dinamik) -->
+          <div class="diag-step d-none" id="diagStep2">
+            <div class="diag-back-row">
+              <button type="button" class="btn-diag-back" id="btnDiagBack"><i class="fa-solid fa-chevron-left"></i> Geri Dön</button>
+              <span class="diag-badge-cat" id="diagSelectedCatName">Ekran & Dokunmatik</span>
+            </div>
+            <h3 class="diag-title"><span class="step-num">2</span> Yaşadığınız Durumu En İyi Hangisi Açıklıyor?</h3>
+            <div class="diag-symptom-list" id="diagSymptomContainer">
+              <!-- JS ile doldurulur -->
+            </div>
+          </div>
+
+          <!-- Step 3: Teşhis Raporu & Çözüm -->
+          <div class="diag-step d-none" id="diagStep3">
+            <div class="diag-report-card">
+              <div class="report-header">
+                <div class="report-badge"><i class="fa-solid fa-clipboard-check text-cyan"></i> Otomatik Donanım Teşhisi</div>
+                <h3 class="report-title" id="diagReportTitle">Muhtemel Arıza: İç OLED Sağlam • Yalnızca Ön Cam Hasarı</h3>
+              </div>
+
+              <div class="report-grid">
+                <div class="report-col">
+                  <span class="report-col-label"><i class="fa-solid fa-wrench text-cyan"></i> Tavsiye Edilen İşlem:</span>
+                  <p class="report-col-val" id="diagReportAction">OLED panel değişmeden orijinal cam presleme (Orijinalliği koruyan ekonomik yöntem)</p>
+                </div>
+                <div class="report-col">
+                  <span class="report-col-label"><i class="fa-solid fa-stopwatch text-cyan"></i> Tahmini Onarım Süresi:</span>
+                  <p class="report-col-val text-cyan font-bold" id="diagReportDuration">25 - 30 Dakika (Göz Önünde Bankoda)</p>
+                </div>
+                <div class="report-col">
+                  <span class="report-col-label"><i class="fa-solid fa-shield-halved text-cyan"></i> Garanti Kapsamı:</span>
+                  <p class="report-col-val" id="diagReportWarranty">6 Ay CepHane Kaşeli Servis Garantisi</p>
+                </div>
+                <div class="report-col">
+                  <span class="report-col-label"><i class="fa-solid fa-database text-cyan"></i> Veri Güvenliği:</span>
+                  <p class="report-col-val text-green font-bold">Verileriniz ASLA Silinmez, Şifre İstenmez</p>
+                </div>
+              </div>
+
+              <div class="report-action-box">
+                <a href="#" id="btnDiagWhatsApp" target="_blank" class="btn btn-whatsapp-giant">
+                  <i class="fa-brands fa-whatsapp"></i> Bu Teşhis İçin Randevu Al & Fiyat Onayı Al (WhatsApp)
+                </a>
+                <button type="button" class="btn-diag-restart" id="btnDiagRestart">
+                  <i class="fa-solid fa-rotate-left"></i> Farklı Bir Arıza Test Et
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
   <!-- BÖLÜM 3: GERÇEK MAĞAZAMIZ & GOOGLE FOTOĞRAFLARI (ESENYURT)-->
   <!-- ========================================================= -->
   <section class="section-wrapper" id="magaza">
@@ -930,6 +1211,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=4.6_holo"></script>
+  <script src="app.js?v=5.0_lab"></script>
 </body>
 </html>
