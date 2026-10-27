@@ -1,0 +1,18 @@
+# CepHane İletişim Esenyurt Robots.txt
+# https://xn--cephaneiletiim-6zc.com/
+
+User-agent: *
+Allow: /
+
+# Googlebot & Bingbot full crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap
+Sitemap: https://xn--cephaneiletiim-6zc.com/sitemap.xml
