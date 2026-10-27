@@ -300,16 +300,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateRepairDuration(issueText) {
     if (!repTimeEst) return;
-    if (issueText.includes('~20 Dk')) {
+    if (issueText.includes('Batarya')) {
       repTimeEst.textContent = '~20 Dakika (Göz Önünde)';
-    } else if (issueText.includes('~30 Dk')) {
+    } else if (issueText.includes('Ekran')) {
       repTimeEst.textContent = '~30 Dakika (Göz Önünde)';
-    } else if (issueText.includes('~45 Dk')) {
-      repTimeEst.textContent = '~45 Dakika (Lazer Laboratuvarı)';
-    } else if (issueText.includes('Anakart') || issueText.includes('Sıvı')) {
-      repTimeEst.textContent = 'Aynı Gün İnceleme (Mikroskop Altı)';
+    } else if (issueText.includes('Arka Cam') || issueText.includes('Kasa')) {
+      repTimeEst.textContent = '~3 - 4 Saat (Lazer & Pres Kuruma Süresi)';
+    } else if (issueText.includes('Anakart') || issueText.includes('Sıvı') || issueText.includes('Entegre')) {
+      repTimeEst.textContent = '~3 - 4 Saat (Ultrasonik Havuz & Mikro Lehimleme)';
+    } else if (issueText.includes('Kamera')) {
+      repTimeEst.textContent = '~3 - 4 Saat (OIS Kalibrasyon & Lazer Pres)';
+    } else if (issueText.includes('Soket') || issueText.includes('Ahize') || issueText.includes('Mikrofon')) {
+      repTimeEst.textContent = '~3 - 4 Saat (Detaylı Bord & Ses Odası)';
     } else {
-      repTimeEst.textContent = '~20 - 30 Dakika (Göz Önünde)';
+      repTimeEst.textContent = '~3 - 4 Saat (Detaylı Kalibrasyon & Test)';
     }
   }
 
@@ -602,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: 'Bugün, 14:15',
       status: 'Onarım Bankoda Devam Ediyor',
       step: 3,
-      est: '~12 Dakika',
+      est: '~15 Dakika (Göz Önünde)',
       tech: 'Murat Usta'
     },
     'CPH-5120': {
@@ -610,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: 'Bugün, 15:30',
       status: '12 Nokta Kalibrasyon & Pil Testi',
       step: 4,
-      est: '~8 Dakika',
+      est: '~10 Dakika (Göz Önünde)',
       tech: 'Emre Usta'
     },
     'CPH-9044': {
@@ -618,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: 'Bugün, 12:00',
       status: 'Teslimata Hazır (Kaşeli Garanti)',
       step: 5,
-      est: 'Hemen Teslim Alabilirsiniz ☕',
+      est: 'Hemen Teslim Alabilirsiniz (Toplam 3.5 Saat)',
       tech: 'Murat Usta'
     }
   };
@@ -630,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
         time: 'Bugün, 15:00',
         status: 'Cihaz Kabulü Yapıldı • Sıraya Alındı',
         step: 2,
-        est: '~25 Dakika',
+        est: '~3 - 4 Saat (Detaylı Kalibrasyon)',
         tech: 'Teknik Servis Ekibi'
       };
     }
@@ -738,7 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Şarj kablosunu takınca temassızlık yapıyor, kabloyu bükünce alıyor',
           diagnosis: 'Şarj Soket Yuvası Pamuk/Toz Tıkanması veya Lehim Çatlağı',
           action: 'Mikroskobik soket temizliği veya orijinal Lightning / Type-C soket değişimi.',
-          duration: '15 - 20 Dakika',
+          duration: '3 - 4 Saat (Detaylı Bord & Temas Testi)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         },
@@ -746,7 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Telefon şarj kablosunu hiç görmüyor, açılmıyor ve aşırı ısınıyor',
           diagnosis: 'U2 Tristar / Hydra Şarj Yönetim Entegresi Arızası',
           action: 'Mikro lehimleme istasyonunda anakart şarj entegresi onarımı.',
-          duration: '40 - 50 Dakika Göz Önünde',
+          duration: '3 - 4 Saat (Mikro Lehimleme & Anakart Testi)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         }
@@ -759,7 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Kamera net çekiyor fakat dışındaki yuvarlak lens camı kırıldı',
           diagnosis: 'Yalnızca Dış Kamera Safir Camı Kırık',
           action: 'Cihazın içi ve kasası açılmadan lazerle dış safir cam değişimi.',
-          duration: '15 Dakika',
+          duration: '3 - 4 Saat (Lazer Çıkarma & Pres Kuruma)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         },
@@ -767,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Kamerayı açınca titriyor, cızlama sesi geliyor veya odaklanmıyor',
           diagnosis: 'OIS (Optik Görüntü Sabitleyici) Motoru Darbe Hasarı',
           action: 'Orijinal kamera sensör modülü değişimi ve odaklama testi.',
-          duration: '30 Dakika Göz Önünde',
+          duration: '3 - 4 Saat (Orijinal Modül Montaj & Kalibrasyon)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         }
@@ -780,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Telefona çay/su döküldü veya suya düştü, çalışıyor ama içi nemli',
           diagnosis: 'Acil Sıvı Teması • Oksitlenme Riski',
           action: 'Ultrasonik kimyasal havuzda anakart temizliği ve korozyon giderimi (Acil Müdahale!).',
-          duration: '40 - 60 Dakika',
+          duration: '3 - 4 Saat (Kimyasal Havuz & Kurutma Fırını)',
           warranty: 'Servis Güvencesi',
           security: 'Cihazı şarja takmadan acilen getirin.'
         },
@@ -788,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Telefon elma logosunda kalıyor, açılıp kapanıyor (bootloop)',
           diagnosis: 'NAND Hafıza Doluluğu veya Yazılımsal Çökme',
           action: 'Veri kaybı yaşanmadan profesyonel yazılım onarımı ve sistem kurtarma.',
-          duration: '35 Dakika',
+          duration: '3 - 4 Saat (NAND Bellek & Yazılım Kurtarma)',
           warranty: 'Kaşeli Firma Garantisi',
           security: 'Öncelik verilerinizin kurtarılmasıdır.'
         }
@@ -801,7 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Telefonla konuşurken karşı tarafın sesi çok boğuk veya az geliyor',
           diagnosis: 'Akustik Ahize Izgarası Korozyonu & Toz Tıkanıklığı',
           action: 'Ultrasonik ahize ızgarası temizliği veya orijinal ahize hoparlör değişimi.',
-          duration: '15 - 20 Dakika',
+          duration: '3 - 4 Saat (Akustik Temizlik & Montaj)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         },
@@ -809,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Konuşurken karşı taraf sesimi duyamıyor veya ses kaydı cızırtılı çıkıyor',
           diagnosis: 'Gürültü Engelleyici Alt Mikrofon Bordu Arızalı',
           action: 'Orijinal mikrofon filmi değişimi ve 3 noktalı ses testi.',
-          duration: '25 Dakika',
+          duration: '3 - 4 Saat (Anakart Flex & Test)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         }
@@ -822,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'SIM kart takılı olmasına rağmen "Servis Yok" veya "SIM Yok" diyor',
           diagnosis: 'Baseband Şebeke Çipi veya SIM Yuvası Temassızlığı',
           action: 'Mikroskop altında baseband şebeke işlemcisi kontrolü ve onarımı.',
-          duration: '45 Dakika',
+          duration: '3 - 4 Saat (Mikroskop Altında Çip Onarımı)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         },
@@ -830,7 +834,7 @@ document.addEventListener('DOMContentLoaded', () => {
           symptom: 'Ayarlarda WiFi butonu gri (sönük) kalıyor ve açılamıyor',
           diagnosis: 'WiFi / Bluetooth Modül Entegresi Arızası',
           action: 'Anakart üzerinde WiFi çip onarımı ve reballing işlemi.',
-          duration: '45 - 60 Dakika',
+          duration: '3 - 4 Saat (Anakart Reballing & Isı Testi)',
           warranty: '6 Ay Kaşeli Firma Garantisi',
           security: 'Verileriniz silinmez, şifre gerekmez.'
         }
