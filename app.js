@@ -920,5 +920,115 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
     diagStep3.classList.remove('d-none');
   }
 
+  // ==========================================
+  // SIFIR KAPALI KUTU CİHAZ YAPILANDIRICI & ANINDA FİYAT MOTORU
+  // ==========================================
+  const sifirModelPills = document.querySelectorAll('#sifirModelPills .cfg-pill');
+  const sifirCapPills = document.querySelectorAll('#sifirCapacityPills .cfg-pill');
+  const sifirColorSwatches = document.querySelectorAll('#sifirColorSwatches .color-swatch');
+  const sifirWarrantyPills = document.querySelectorAll('#sifirWarrantyPills .cfg-pill');
+  const chkSifirTradeIn = document.getElementById('chkSifirTradeIn');
+  const inputSifirOldModel = document.getElementById('inputSifirOldModel');
+  const sifirColorName = document.getElementById('sifirColorName');
+  const btnSifirQuoteWhatsApp = document.getElementById('btnSifirQuoteWhatsApp');
+
+  let currentSifirModel = 'iPhone 16 Pro';
+  let currentSifirCap = '128 GB';
+  let currentSifirColor = 'Çöl Titanyum (Desert)';
+  let currentSifirWarranty = 'Apple Türkiye (2 Yıl Garantili)';
+
+  function updateSifirWhatsAppUrl() {
+    let msg = `Merhaba CepHane İletişim, sitenizden sıfır kapalı kutu cihaz için güncel spot fiyat ve stok teyidi almak istiyorum.
+
+📦 *Talep Edilen Sıfır Cihaz:*
+• Model: *${currentSifirModel}*
+• Dahili Hafıza: *${currentSifirCap}*
+• Renk: *${currentSifirColor}*
+• Garanti Tipi: *${currentSifirWarranty}*`;
+
+    if (chkSifirTradeIn && chkSifirTradeIn.checked) {
+      const oldModelVal = (inputSifirOldModel && inputSifirOldModel.value.trim()) ? inputSifirOldModel.value.trim() : 'Mevcut telefonumu takasa verip üzerine ödeme yapmak istiyorum';
+      msg += `\n\n🔄 *Takas (Eskiyi Getir Yeniyi Götür):*
+• Takasa Verilecek Cihaz: *${oldModelVal}*`;
+    }
+
+    msg += `\n\n💬 _Esenyurt şubenizde bu cihazın kapalı kutu anlık nakit/havale spot fiyatını ve teslimat durumunu öğrenebilir miyim?_`;
+
+    if (btnSifirQuoteWhatsApp) {
+      btnSifirQuoteWhatsApp.href = `https://wa.me/${CEPHANE_PHONE}?text=${encodeURIComponent(msg)}`;
+    }
+  }
+
+  if (sifirModelPills.length > 0) {
+    sifirModelPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        sifirModelPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentSifirModel = pill.getAttribute('data-model') || pill.textContent.trim();
+        updateSifirWhatsAppUrl();
+      });
+    });
+  }
+
+  if (sifirCapPills.length > 0) {
+    sifirCapPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        sifirCapPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentSifirCap = pill.getAttribute('data-cap') || pill.textContent.trim();
+        updateSifirWhatsAppUrl();
+      });
+    });
+  }
+
+  if (sifirColorSwatches.length > 0) {
+    sifirColorSwatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        sifirColorSwatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        currentSifirColor = swatch.getAttribute('data-color') || 'Belirtilmedi';
+        if (sifirColorName) {
+          sifirColorName.textContent = currentSifirColor;
+        }
+        updateSifirWhatsAppUrl();
+      });
+    });
+  }
+
+  if (sifirWarrantyPills.length > 0) {
+    sifirWarrantyPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        sifirWarrantyPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentSifirWarranty = pill.getAttribute('data-warranty') || pill.textContent.trim();
+        updateSifirWhatsAppUrl();
+      });
+    });
+  }
+
+  if (chkSifirTradeIn) {
+    chkSifirTradeIn.addEventListener('change', () => {
+      if (inputSifirOldModel) {
+        if (chkSifirTradeIn.checked) {
+          inputSifirOldModel.classList.remove('d-none');
+          inputSifirOldModel.focus();
+        } else {
+          inputSifirOldModel.classList.add('d-none');
+        }
+      }
+      updateSifirWhatsAppUrl();
+    });
+  }
+
+  if (inputSifirOldModel) {
+    inputSifirOldModel.addEventListener('input', () => {
+      updateSifirWhatsAppUrl();
+    });
+  }
+
+  // İlk yüklemede WhatsApp butonunu hazırla
+  updateSifirWhatsAppUrl();
+
 });
+
 

@@ -3518,3 +3518,410 @@ body {
 .btn-diag-restart:hover {
   color: var(--cyan-bright);
 }
+
+/* ==========================================================================
+   BÖLÜM 4: SIFIR KAPALI KUTU CİHAZLAR & ANINDA FİYAT AL
+   ========================================================================== */
+.section-sifir-wrapper {
+  background: radial-gradient(ellipse at 50% 10%, rgba(212, 175, 55, 0.08) 0%, rgba(10, 16, 30, 0) 70%);
+  position: relative;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* 4 Avantaj Kartı */
+.sifir-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1024px) {
+  .sifir-perks-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .sifir-perks-grid { grid-template-columns: 1fr; }
+}
+
+.sifir-perk-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(18, 24, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 20px 18px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+.sifir-perk-card:hover {
+  background: rgba(24, 34, 52, 0.85);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+}
+.perk-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.perk-text strong {
+  display: block;
+  font-size: 14.5px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.perk-text small {
+  display: block;
+  font-size: 12px;
+  color: var(--titanium-silver);
+  line-height: 1.5;
+}
+
+/* Spotlight Card: iPhone 16 Pro Max */
+.sifir-spotlight-card {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 40px;
+  background: rgba(14, 20, 36, 0.9);
+  border: 1.5px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.1);
+  margin-bottom: 50px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 1080px) {
+  .sifir-spotlight-card {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+  }
+}
+
+.spotlight-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15), rgba(6, 10, 20, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 380px;
+}
+.spotlight-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(10, 16, 28, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--pure-white);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+.spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.sifir-spotlight-card:hover .spotlight-img {
+  transform: scale(1.03);
+}
+.spotlight-watermark {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.spotlight-content {
+  display: flex;
+  flex-direction: column;
+}
+.spotlight-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.spotlight-tag {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--cyan-bright);
+  letter-spacing: 1.2px;
+}
+.spotlight-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #00e676;
+}
+
+.spotlight-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+}
+.spotlight-desc {
+  font-size: 15px;
+  color: var(--titanium-silver);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Configurator Rows */
+.config-row {
+  margin-bottom: 18px;
+}
+.config-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+}
+.config-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cfg-pill {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: #cbd5e1;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cfg-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(212, 175, 55, 0.35);
+}
+.cfg-pill.active {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: #d4af37;
+  color: #d4af37;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+}
+
+/* Color Swatches */
+.color-swatches {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--swatch-color);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+.color-swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px #d4af37, 0 0 14px rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+/* Trade In Box */
+.config-tradein-box {
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px dashed rgba(0, 229, 255, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin: 18px 0 24px;
+}
+.tradein-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+.tradein-toggle input[type="checkbox"] {
+  display: none;
+}
+.tradein-custom-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 229, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+}
+.tradein-toggle input[type="checkbox"]:checked + .tradein-custom-check {
+  background: var(--cyan-bright);
+  border-color: var(--cyan-bright);
+}
+.tradein-toggle input[type="checkbox"]:checked + .tradein-custom-check::after {
+  content: '✓';
+  color: #070d18;
+  font-size: 13px;
+  font-weight: 800;
+}
+.tradein-label-text strong {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.tradein-label-text small {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+}
+.tradein-input {
+  margin-top: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  font-size: 13.5px;
+}
+
+.spotlight-action-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.price-notice-small {
+  font-size: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* SIFIR CİHAZ KATALOĞU (4 KART) */
+.sifir-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1024px) {
+  .sifir-catalog-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .sifir-catalog-grid { grid-template-columns: 1fr; }
+}
+
+.sifir-cat-card {
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+.sifir-cat-card:hover {
+  background: rgba(24, 34, 52, 0.95);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4);
+}
+.sifir-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #d4af37;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+.sifir-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0 16px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.3);
+}
+.sifir-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.sifir-cat-card:hover .sifir-card-img {
+  transform: scale(1.05);
+}
+.sifir-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.sifir-card-body h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.sifir-card-body p {
+  font-size: 13px;
+  color: var(--titanium-silver);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.sifir-card-specs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.sifir-card-specs span {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--cyan-bright);
+  background: rgba(0, 229, 255, 0.08);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
