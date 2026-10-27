@@ -91,22 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const bootStatusText = document.getElementById('bootStatusText');
 
   if (phoneBootScreen && bootProgressFill && bootStatusText) {
-    // 1. Aşama: Donanım testi (%25)
+    // 1. Aşama: Donanım testi (%30)
     setTimeout(() => {
-      bootProgressFill.style.width = '25%';
-    }, 150);
+      bootProgressFill.style.width = '30%';
+      bootStatusText.textContent = 'Biyometrik Donanım Taranıyor...';
+    }, 200);
 
-    // 2. Aşama: Teknik Servis & Parça (%65)
+    // 2. Aşama: Teknik Servis & Parça (%75)
     setTimeout(() => {
-      bootProgressFill.style.width = '65%';
-      bootStatusText.textContent = '30 Dk Servis & Değerleme Modülü Hazır...';
-    }, 550);
+      bootProgressFill.style.width = '75%';
+      bootStatusText.textContent = '30 Dk Servis & Değerleme Modülü Aktif...';
+    }, 800);
 
     // 3. Aşama: Tamamlandı (%100)
     setTimeout(() => {
       bootProgressFill.style.width = '100%';
-      bootStatusText.textContent = 'Hoş Geldiniz • CepHane İletişim';
-    }, 1050);
+      bootStatusText.textContent = 'Sistem Hazır • CepHane İletişim';
+    }, 1500);
 
     // 4. Kilit Açılma & Siteye Geçiş
     const unlockPhone = () => {
@@ -118,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 600);
     };
 
-    setTimeout(unlockPhone, 1500);
+    setTimeout(unlockPhone, 2200);
 
     // Kullanıcı beklemek istemezse ekrana dokunup anında geçebilir
     phoneBootScreen.addEventListener('click', unlockPhone);
