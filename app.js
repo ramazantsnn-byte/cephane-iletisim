@@ -938,7 +938,7 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
   let currentSifirWarranty = 'Apple Türkiye (2 Yıl Garantili)';
 
   function updateSifirWhatsAppUrl() {
-    let msg = `Merhaba CepHane İletişim, sitenizden sıfır kapalı kutu cihaz için güncel spot fiyat ve stok teyidi almak istiyorum.
+    let msg = `Merhaba CepHane İletişim, sitenizden sıfır kapalı kutu cihaz için güncel fiyat ve stok teyidi almak istiyorum.
 
 📦 *Talep Edilen Sıfır Cihaz:*
 • Model: *${currentSifirModel}*
@@ -952,7 +952,7 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
 • Takasa Verilecek Cihaz: *${oldModelVal}*`;
     }
 
-    msg += `\n\n💬 _Esenyurt şubenizde bu cihazın kapalı kutu anlık nakit/havale spot fiyatını ve teslimat durumunu öğrenebilir miyim?_`;
+    msg += `\n\n💬 _Esenyurt şubenizde bu cihazın kapalı kutu güncel nakit/havale fiyatını ve teslimat durumunu öğrenebilir miyim?_`;
 
     if (btnSifirQuoteWhatsApp) {
       btnSifirQuoteWhatsApp.href = `https://wa.me/${CEPHANE_PHONE}?text=${encodeURIComponent(msg)}`;
