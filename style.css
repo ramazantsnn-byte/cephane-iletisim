@@ -3870,96 +3870,372 @@ body {
   gap: 6px;
 }
 
-/* SIFIR CİHAZ KATALOĞU (4 KART) */
-.sifir-catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-@media (max-width: 1024px) {
-  .sifir-catalog-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .sifir-catalog-grid { grid-template-columns: 1fr; }
+/* ==========================================================================
+   MASTER RESPONSIVE & MOBILE PERFECTION SUITE
+   Zero Overflow • Apple Touch Standards • Compact Visual Hierarchy
+   ========================================================================== */
+
+/* 1. Global Viewport Safety & Zero Horizontal Scroll */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
 }
 
-.sifir-cat-card {
-  background: rgba(18, 24, 38, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(12px);
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-.sifir-cat-card:hover {
-  background: rgba(24, 34, 52, 0.95);
-  border-color: rgba(212, 175, 55, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4);
+
+img, video {
+  max-width: 100%;
+  height: auto;
 }
-.sifir-card-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  color: #d4af37;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
+
+/* 2. Mobile Responsive Rules (Tablet & Mobile Under 768px) */
+@media (max-width: 768px) {
+  /* Section Spacings & Typography */
+  .section-wrapper {
+    padding: 50px 0 !important;
+  }
+  .section-title {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+  }
+  .section-sub {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 26px !important;
+  }
+  .section-tag {
+    font-size: 11.5px !important;
+    padding: 5px 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Container Padding */
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Body Bottom Padding for Sticky Bar */
+  body {
+    padding-bottom: 84px !important;
+  }
+
+  /* Hero Section Mobile Polish */
+  .hero-section {
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+  }
+  .hero-title {
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-sub {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
+  }
+  .hero-cyber-core-bg {
+    width: 220px !important;
+    height: 220px !important;
+    opacity: 0.45 !important;
+  }
+  .hero-dual-selector {
+    gap: 12px !important;
+    margin-bottom: 28px !important;
+  }
+  .hero-selector-card {
+    padding: 14px 16px !important;
+    gap: 12px !important;
+  }
+  .selector-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 18px !important;
+  }
+  .selector-content h3 {
+    font-size: 16px !important;
+  }
+  .selector-content p {
+    font-size: 12px !important;
+  }
+
+  /* Dijital Servis Laboratuvarı: Segmented Compact Tab Bar */
+  .lab-switcher-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    background: rgba(8, 14, 26, 0.95) !important;
+    padding: 6px !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid rgba(0, 229, 255, 0.2) !important;
+    margin-bottom: 24px !important;
+  }
+  .lab-tab-btn {
+    padding: 10px 4px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 5px !important;
+    border-radius: var(--radius-sm) !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  .lab-tab-btn.active {
+    background: rgba(0, 229, 255, 0.18) !important;
+    border: 1px solid rgba(0, 229, 255, 0.4) !important;
+  }
+  .lab-tab-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+  }
+  .lab-tab-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+  .lab-tab-sub {
+    display: none !important;
+  }
+
+  /* Akustik Su Tahliyesi Kartı Mobile */
+  .speaker-cleaner-card {
+    padding: 22px 16px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .speaker-visual-wrapper {
+    height: 200px !important;
+  }
+  .speaker-cone {
+    width: 115px !important;
+    height: 115px !important;
+  }
+  .speaker-cone-ambient {
+    width: 170px !important;
+    height: 170px !important;
+  }
+  .speaker-title {
+    font-size: 21px !important;
+  }
+  .speaker-desc {
+    font-size: 13.5px !important;
+    margin-bottom: 16px !important;
+  }
+  .btn-speaker-start {
+    font-size: 14px !important;
+    padding: 13px 20px !important;
+  }
+
+  /* Canlı Tamir Takip Mobile */
+  .tracker-card {
+    padding: 20px 15px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .tracker-ticket-header {
+    margin-bottom: 20px !important;
+    padding-bottom: 16px !important;
+  }
+  .ticket-device-title {
+    font-size: 19px !important;
+  }
+
+  /* Sıfır Cihaz & Spotlight Card Mobile Perfection */
+  .sifir-spotlight-card {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+    gap: 22px !important;
+    margin-bottom: 28px !important;
+  }
+  .spotlight-visual {
+    min-height: 230px !important;
+    max-height: 270px !important;
+    border-radius: 16px !important;
+  }
+  .spotlight-media-container {
+    min-height: 230px !important;
+    height: 250px !important;
+  }
+  .spotlight-video {
+    min-height: 230px !important;
+    height: 250px !important;
+    border-radius: 16px !important;
+  }
+  .spotlight-title {
+    font-size: 24px !important;
+    margin-bottom: 6px !important;
+  }
+  .spotlight-desc {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
+  }
+  .spotlight-badge {
+    top: 12px !important;
+    left: 12px !important;
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+  }
+  .video-overlay-badge {
+    bottom: 12px !important;
+    left: 12px !important;
+    font-size: 10px !important;
+    padding: 4px 10px !important;
+  }
+
+  /* Configurator Pills: Clean 2-Column Grid on Mobile */
+  .config-pills {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  #sifirCapacityPills {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  .cfg-pill {
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+  }
+  .color-swatches {
+    gap: 12px !important;
+    justify-content: flex-start !important;
+  }
+  .color-swatch {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .config-tradein-box {
+    padding: 12px !important;
+    margin: 14px 0 18px !important;
+  }
+  .tradein-label-text strong {
+    font-size: 13px !important;
+  }
+  .tradein-label-text small {
+    font-size: 11px !important;
+  }
+  .btn-whatsapp-giant {
+    font-size: 14px !important;
+    padding: 14px 16px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Sıfır Cihaz 4 Avantaj Kutusu (2x2 Grid) */
+  .sifir-perks-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+  }
+  .sifir-perk-card {
+    padding: 14px 12px !important;
+    border-radius: var(--radius-md) !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .perk-icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 16px !important;
+  }
+  .perk-text strong {
+    font-size: 12.5px !important;
+    line-height: 1.3 !important;
+  }
+  .perk-text small {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Mağaza & Vitrin Bölümü Mobile */
+  .store-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .store-card {
+    height: 220px !important;
+  }
+  .store-features-strip {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .store-feat-item {
+    padding: 12px 10px !important;
+    gap: 10px !important;
+  }
+  .store-feat-item strong {
+    font-size: 12.5px !important;
+  }
+  .store-feat-item span {
+    font-size: 11px !important;
+  }
+
+  /* Vitrin Cihaz Kartları: Mobile 2-Column Grid */
+  .showcase-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .product-card {
+    padding: 14px !important;
+  }
+  .product-img-box {
+    height: 130px !important;
+    margin-bottom: 12px !important;
+  }
+  .product-card h3 {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+  .product-specs {
+    font-size: 11.5px !important;
+    margin-bottom: 12px !important;
+  }
+  .product-price-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+  }
+  .product-tag-warranty {
+    font-size: 10.5px !important;
+    padding: 3px 6px !important;
+    text-align: center !important;
+  }
+  .product-price-row .btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 8px 10px !important;
+    font-size: 12.5px !important;
+  }
 }
-.sifir-card-img-wrap {
-  width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 18px 0 16px;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: rgba(0, 0, 0, 0.3);
+
+/* 3. Ultra Small Phones (Under 400px - iPhone SE / Galaxy S) */
+@media (max-width: 400px) {
+  .sifir-perks-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .store-features-strip {
+    grid-template-columns: 1fr !important;
+  }
+  .showcase-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #sifirCapacityPills {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
-.sifir-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.sifir-cat-card:hover .sifir-card-img {
-  transform: scale(1.05);
-}
-.sifir-card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.sifir-card-body h4 {
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-}
-.sifir-card-body p {
-  font-size: 13px;
-  color: var(--titanium-silver);
-  line-height: 1.5;
-  margin-bottom: 14px;
-  flex: 1;
-}
-.sifir-card-specs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-.sifir-card-specs span {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--cyan-bright);
-  background: rgba(0, 229, 255, 0.08);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
+
