@@ -84,46 +84,8 @@ const PHONE_DATABASE = {
 document.addEventListener('DOMContentLoaded', () => {
 
   // -----------------------------------------------------------
-  // TELEFON AÇILIŞ BOOT SEREMONİSİ (CYBER-OLED PRELOADER)
+  // ANINDA HIZLI AÇILIŞ (PRELOADER KALDIRILDI)
   // -----------------------------------------------------------
-  const phoneBootScreen = document.getElementById('phoneBootScreen');
-  const bootProgressFill = document.getElementById('bootProgressFill');
-  const bootStatusText = document.getElementById('bootStatusText');
-
-  if (phoneBootScreen && bootProgressFill && bootStatusText) {
-    // 1. Aşama: Donanım testi (%30)
-    setTimeout(() => {
-      bootProgressFill.style.width = '30%';
-      bootStatusText.textContent = 'Biyometrik Donanım Taranıyor...';
-    }, 200);
-
-    // 2. Aşama: Teknik Servis & Parça (%75)
-    setTimeout(() => {
-      bootProgressFill.style.width = '75%';
-      bootStatusText.textContent = '30 Dk Servis & Değerleme Modülü Aktif...';
-    }, 800);
-
-    // 3. Aşama: Tamamlandı (%100)
-    setTimeout(() => {
-      bootProgressFill.style.width = '100%';
-      bootStatusText.textContent = 'Sistem Hazır • CepHane İletişim';
-    }, 1500);
-
-    // 4. Kilit Açılma & Siteye Geçiş
-    const unlockPhone = () => {
-      phoneBootScreen.classList.add('boot-unlocked');
-      setTimeout(() => {
-        if (phoneBootScreen.parentNode) {
-          phoneBootScreen.remove();
-        }
-      }, 600);
-    };
-
-    setTimeout(unlockPhone, 2200);
-
-    // Kullanıcı beklemek istemezse ekrana dokunup anında geçebilir
-    phoneBootScreen.addEventListener('click', unlockPhone);
-  }
 
   // -----------------------------------------------------------
   // MOBİL DRAWER MENÜ

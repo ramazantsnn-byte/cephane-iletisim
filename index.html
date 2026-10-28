@@ -169,114 +169,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <style>
-    /* Kritik Boot Öncelikli CSS - Sıfır Gecikme */
-    .phone-boot-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 99999999;
-      background: #02050e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
-    }
-    .phone-boot-overlay.boot-unlocked {
-      opacity: 0 !important;
-      transform: translateY(-50px) scale(1.06) !important;
-      pointer-events: none !important;
-      visibility: hidden !important;
-    }
-    .boot-phone-chassis {
-      position: relative;
-      width: 330px;
-      height: 610px;
-      max-width: 90vw;
-      max-height: 86vh;
-      background: #000000;
-      border-radius: 54px;
-      border: 4px solid #1e293b;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 229, 255, 0.35);
-      display: flex;
-      flex-direction: column;
-      padding: 18px 20px 24px;
-      overflow: hidden;
-    }
-    .boot-dynamic-island {
-      width: 105px;
-      height: 28px;
-      background: #000;
-      border-radius: 20px;
-      margin: 0 auto 36px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
-    }
-    .island-camera { width: 10px; height: 10px; border-radius: 50%; background: #0284c7; }
-    .island-sensor { width: 7px; height: 7px; border-radius: 50%; background: #1e293b; }
-    .boot-screen-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-    .boot-logo-icon-pulse {
-      width: 82px;
-      height: 82px;
-      border-radius: 24px;
-      background: rgba(0, 229, 255, 0.15);
-      border: 1px solid rgba(0, 229, 255, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 2.3rem;
-      color: #00e5ff;
-      box-shadow: 0 0 40px rgba(0, 229, 255, 0.5);
-    }
-    .boot-brand-title { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .boot-brand-sub { font-size: 0.76rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.8px; font-weight: 600; }
-    .boot-status-box { width: 100%; max-width: 250px; margin-top: 36px; }
-    .boot-progress-track { width: 100%; height: 6px; background: rgba(255, 255, 255, 0.12); border-radius: 99px; overflow: hidden; margin-bottom: 12px; }
-    .boot-progress-fill { width: 15%; height: 100%; background: linear-gradient(90deg, #0284c7, #00e5ff, #00e676); border-radius: 99px; transition: width 0.4s ease; box-shadow: 0 0 14px rgba(0, 229, 255, 0.9); }
-    .boot-status-text { font-size: 0.78rem; color: #94a3b8; min-height: 1.2rem; font-family: sans-serif; }
-    .boot-home-bar { width: 120px; height: 5px; background: rgba(255, 255, 255, 0.4); border-radius: 99px; margin-top: auto; }
-  </style>
-  <link rel="stylesheet" href="style.css?v=9.0_google_seo">
+  <link rel="stylesheet" href="style.css?v=10.0_titanium">
 </head>
 <body>
 
-  <!-- ========================================================= -->
-  <!-- TELEFON BOOT & AÇILIŞ PRELOADER (CYBER-OLED SEREMONİSİ)     -->
-  <!-- ========================================================= -->
-  <div id="phoneBootScreen" class="phone-boot-overlay">
-    <div class="boot-ambient-glow"></div>
-    <div class="boot-phone-chassis">
-      <div class="boot-dynamic-island">
-        <span class="island-camera"></span>
-        <span class="island-sensor"></span>
-      </div>
-
-      <div class="boot-screen-content">
-        <div class="boot-logo-box">
-          <div class="boot-logo-icon-pulse">
-            <i class="fa-solid fa-microchip"></i>
-          </div>
-          <h2 class="boot-brand-title">Cep<span class="text-cyan">Hane</span></h2>
-          <span class="boot-brand-sub">Esenyurt Apple & Servis Üssü</span>
-        </div>
-
-        <div class="boot-status-box">
-          <div class="boot-progress-track">
-            <div class="boot-progress-fill" id="bootProgressFill"></div>
-          </div>
-          <div class="boot-status-text" id="bootStatusText">Donanım & Çipler Kontrol Ediliyor...</div>
-        </div>
-
-        <div class="boot-home-bar"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ambient Ambient Glows -->
+  <!-- Ambient Glows -->
   <div class="ambient-glow ambient-glow-top"></div>
   <div class="ambient-glow ambient-glow-center"></div>
 
@@ -308,21 +205,16 @@
       </a>
 
       <div class="nav-links">
-        <a href="#degerleme" class="nav-highlight"><i class="fa-solid fa-hand-holding-dollar"></i> Telefonunu Sat</a>
-        <a href="#tamir-randevu" class="nav-repair-link"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> 30 Dk Tamir</a>
-        <a href="#sifir-cihazlar" class="nav-sifir-link"><i class="fa-solid fa-box-open text-gold"></i> Sıfır Cihaz</a>
-        <a href="#servis-lab" class="nav-lab-link"><i class="fa-solid fa-microchip text-cyan"></i> Servis Lab</a>
+        <a href="#tamir-randevu"><i class="fa-solid fa-screwdriver-wrench"></i> Teknik Servis</a>
+        <a href="#degerleme"><i class="fa-solid fa-hand-holding-dollar"></i> Telefonunu Sat</a>
+        <a href="#sorun-cozum"><i class="fa-solid fa-circle-question"></i> Sorun & Çözüm</a>
+        <a href="#vitrin"><i class="fa-solid fa-mobile-screen"></i> Cihaz Vitrini</a>
         <a href="#magaza"><i class="fa-solid fa-store"></i> Mağazamız</a>
-        <a href="#vitrin">2. El Vitrin</a>
-        <a href="#iletisim">İletişim</a>
       </div>
 
       <div class="nav-actions">
-        <a href="#tamir-randevu" class="btn btn-nav-repair">
-          <i class="fa-solid fa-screwdriver-wrench text-cyan"></i> 30 Dk Tamir
-        </a>
-        <a href="#degerleme" class="btn btn-primary">
-          <i class="fa-solid fa-calculator"></i> Telefonunu Sat
+        <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20fiyat%20öğrenmek%20istiyorum." target="_blank" class="btn btn-nav-cta">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Fiyat Al
         </a>
       </div>
 
@@ -334,55 +226,21 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <a href="#degerleme" class="mobile-nav-link text-cyan"><i class="fa-solid fa-hand-holding-dollar"></i> Telefonunu Sat (Nakit)</a>
-    <a href="#tamir-randevu" class="mobile-nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> 30 Dk Tamir Randevusu</a>
-    <a href="#sifir-cihazlar" class="mobile-nav-link text-gold"><i class="fa-solid fa-box-open"></i> Sıfır Cihaz Fiyatları (Kapalı Kutu)</a>
-    <a href="#servis-lab" class="mobile-nav-link text-cyan"><i class="fa-solid fa-microchip"></i> Dijital Servis Lab (Su Çıkarıcı & Takip)</a>
-    <a href="#magaza" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Mağazamız & Google Fotoğrafları</a>
-    <a href="#vitrin" class="mobile-nav-link"><i class="fa-solid fa-mobile-screen"></i> 2. El Cihaz Vitrini</a>
-    <a href="#iletisim" class="mobile-nav-link"><i class="fa-solid fa-location-dot"></i> İletişim & Konum</a>
-    <a href="tel:05303543465" class="btn btn-primary w-full"><i class="fa-solid fa-phone"></i> Hemen Ara (0530 354 34 65)</a>
+    <a href="#tamir-randevu" class="mobile-nav-link"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> 30 Dk Teknik Servis</a>
+    <a href="#degerleme" class="mobile-nav-link"><i class="fa-solid fa-hand-holding-dollar text-cyan"></i> Telefonunu Sat (15 Dk Nakit)</a>
+    <a href="#sorun-cozum" class="mobile-nav-link"><i class="fa-solid fa-circle-question text-cyan"></i> Sorun & Çözüm Rehberi</a>
+    <a href="#vitrin" class="mobile-nav-link"><i class="fa-solid fa-mobile-screen"></i> Cihaz Vitrini & Mağaza</a>
+    <a href="#magaza" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Mağazamız & Konum</a>
+    <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20fiyat%20öğrenmek%20istiyorum." target="_blank" class="btn btn-whatsapp-giant" style="margin-top: 14px;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Fiyat Al
+    </a>
+    <a href="tel:05303543465" class="btn btn-outline w-full" style="margin-top: 8px;">
+      <i class="fa-solid fa-phone"></i> Hemen Ara: 0530 354 34 65
+    </a>
   </div>
 
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
-    <!-- ========================================================= -->
-    <!-- HOLOGRAPHIC CYBER CORE (LOGO ARKA PLAN ANİMASYONU)          -->
-    <!-- ========================================================= -->
-    <div class="hero-cyber-core" id="heroCyberCore" aria-hidden="true">
-      <!-- Expanding Sonar / Radar Pulse Waves -->
-      <div class="cyber-pulse-emitter">
-        <span class="cyber-pulse-wave wave-1"></span>
-        <span class="cyber-pulse-wave wave-2"></span>
-        <span class="cyber-pulse-wave wave-3"></span>
-      </div>
-
-      <!-- Cyber HUD Circular Rings (SVG) -->
-      <svg class="cyber-hud-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer Dashed Ring (Cyan) -->
-        <circle class="hud-ring-outer" cx="300" cy="300" r="270" stroke="rgba(0, 229, 255, 0.22)" stroke-width="1.5" stroke-dasharray="6 14" />
-        <!-- Middle Gold Ring -->
-        <circle class="hud-ring-mid" cx="300" cy="300" r="225" stroke="rgba(212, 175, 55, 0.28)" stroke-width="1.2" stroke-dasharray="32 12 6 12" />
-        <!-- Inner Micro Ticks Ring -->
-        <circle class="hud-ring-inner" cx="300" cy="300" r="185" stroke="rgba(0, 229, 255, 0.18)" stroke-width="1" stroke-dasharray="2 8" />
-        <!-- Crosshairs & Degree Markers -->
-        <line x1="300" y1="18" x2="300" y2="40" stroke="rgba(0, 229, 255, 0.5)" stroke-width="2" />
-        <line x1="300" y1="560" x2="300" y2="582" stroke="rgba(0, 229, 255, 0.5)" stroke-width="2" />
-        <line x1="18" y1="300" x2="40" y2="300" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
-        <line x1="560" y1="300" x2="582" y2="300" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
-        <!-- Corner Coordinates / HUD Labels -->
-        <text x="312" y="36" fill="rgba(0, 229, 255, 0.6)" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="1.5">SYS // CEPHANE.CORE</text>
-        <text x="312" y="575" fill="rgba(212, 175, 55, 0.6)" font-size="9" font-family="'JetBrains Mono', monospace" letter-spacing="1.5">LAB // 30-MIN RAPID REPAIR</text>
-      </svg>
-
-      <!-- Centerpiece Holographic Floating Logo -->
-      <div class="cyber-holo-emblem" id="cyberHoloEmblem">
-        <div class="holo-glow-radial"></div>
-        <img src="assets/logo_gold_emblem.png" alt="" class="holo-emblem-img">
-        <div class="holo-scanline"></div>
-      </div>
-    </div>
-
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">
@@ -837,6 +695,167 @@
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- BÖLÜM 2.2: TEKNİK SORUN & ÇÖZÜM REHBERİ (BİLMENİZ GEREKENLER) -->
+  <!-- ========================================================= -->
+  <section class="section-wrapper bg-card-surface" id="sorun-cozum">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-shield-heart text-cyan"></i> Şeffaf Servis & Bilgi Rehberi</span>
+        <h2 class="section-title">Telefonunuz İçin <span class="gradient-text">Doğru Bilinen Yanlışlar & Çözümler</span></h2>
+        <p class="section-sub">Fahiş fiyat ödemeden veya cihazınızı riske atmadan önce mutlaka okuyun. CepHane laboratuvarında uygulanan gerçek teknik standartlar:</p>
+      </div>
+
+      <div class="troubleshoot-grid">
+        <!-- Kart 1: Ön Cam vs Komple Ekran -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Yanılgı: Komple Ekran Değişmeli</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-display"></i></div>
+          </div>
+          <h3 class="ts-title">Ön Cam Kırığı İçin Komple Ekrana Servet Ödemeyin</h3>
+          <p class="ts-desc">
+            Telefonunuzun camı çatladı ama dokunmatiği sorunsuz çalışıyor ve ekranda siyah leke/renkli çizgi yoksa, komple ekranınız sağlamdır. Birçok servis kolayına kaçıp pahalı komple ekran takmayı önerir.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Çözümü (Vakumlu OCA):</div>
+            <p>Fabrika çıkışlı orijinal ekranınız sökülmeden, -150°C dondurucu ve vakumlu OCA laminasyon makinelerimizle yalnızca kırık dış ön cam yenilenir.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-piggy-bank text-emerald"></i> Orijinal Panel Korunur • %60 Tasarruf</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20cihazımın%20ön%20camı%20kırık,%20fiyat%20alabilir%20miyim?" target="_blank" class="ts-btn-wa">
+              Fiyat Sor <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Kart 2: Sıvı Temas & Pirinç Efsanesi -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Tehlike: Pirinç & Fön Makinesi</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-droplet"></i></div>
+          </div>
+          <h3 class="ts-title">Sıvı Temasında Pirinç Telefonu Kurtarmaz, Çürütür</h3>
+          <p class="ts-desc">
+            Suya düşen cihazı pirince koymak veya fön makinesi tutmak nemi çekmez; aksine ısı sıvıyı buharlaştırıp anakartın mikro devrelerine yayarak korozyonu ve kısa devreyi hızlandırır.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Acil Protokolü:</div>
+            <p>Cihazı asla şarja takmadan hemen getirin. Batarya anında kesilir, anakart özel ultrasonik izopropil banyoda mikro korozyondan arındırılır ve kurutulur.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-bolt text-cyan"></i> Veri & Anakart Kurtarma Oranı %85</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20telefonum%20sıvı%20temas%20etti,%20acil%20ne%20yapmalıyım?" target="_blank" class="ts-btn-wa">
+              Acil Destek <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Kart 3: Pil Sağlığı & Orijinal BMS Aktarımı -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Yanılgı: "Bilinmeyen Parça" Normaldir</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-battery-half"></i></div>
+          </div>
+          <h3 class="ts-title">Pil Değişiminde %100 Pil Sağlığını Kaybetmeyin</h3>
+          <p class="ts-desc">
+            iPhone XS ve üzeri modellerde pil değiştiğinde ekranda <em>"Bilinmeyen Parça Uyarısı"</em> çıkması ve pil yüzdesinin görünmemesi sıradan servislerin hatasıdır; orijinal çipi aktarmazlar.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Çözümü (BMS Çip Aktarımı):</div>
+            <p>Eski orijinal pilinizin BMS yönetim entegresi mikroskop altında lazer punta ile yeni yüksek kapasiteli pile aktarılır. Sistem uyarısı vermez, pil sağlığı %100 görünür.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-check-double text-emerald"></i> Uyarı Çıkmaz • %100 Sağlık • 6 Ay Garanti</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20pil%20sağlığı%20aktarımlı%20batarya%20değişimi%20fiyatı%20nedir?" target="_blank" class="ts-btn-wa">
+              Pil Fiyatı <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Kart 4: True Tone & Face ID Koruma -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Sorun: True Tone & Face ID Kaybı</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-eye"></i></div>
+          </div>
+          <h3 class="ts-title">Ekran Değişiminden Sonra True Tone Kaybolmasın</h3>
+          <p class="ts-desc">
+            Özensiz ekran değişimlerinde Apple'ın ortam ışığına göre rengi ayarlayan True Tone özelliği kapanır veya ön sensör filtresi hasar alarak Face ID devre dışı kalır.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Standartı:</div>
+            <p>Eski ekranınızdaki EEPROM optik seri numarası dijital programlama cihazı ile yeni ekrana 1-1 klonlanır. True Tone ve Face ID hassasiyetiniz ilk günkü gibi korunur.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-shield-halved text-cyan"></i> EEPROM Klonlama • Face ID Garantisi</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20True%20Tone%20korumalı%20ekran%20değişimi%20fiyatı%20almak%20istiyorum." target="_blank" class="ts-btn-wa">
+              Bilgi Al <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Kart 5: Anakart Mikro-Lehimleme & Entegre Onarımı -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Yanılgı: "Anakart Çöp, Telefon Bitti"</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-microchip"></i></div>
+          </div>
+          <h3 class="ts-title">Anakartı Komple Değiştirmeden Çip Onarımı</h3>
+          <p class="ts-desc">
+            Yetkili servislerin <em>"anakart değişmeli, yenisini alın"</em> dediği ses entegresi (Audio IC), şebeke aranıyor (Baseband), şarj entegresi (Tristar) ve elma logosunda kalma arızaları çözülebilir.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Laboratuvarı:</div>
+            <p>Termal kamera ve mikroskop altında kısa devre tespiti yapılır. Yalnızca hasarlı mikro çip hassas lehimleme ile onarılır; verileriniz silinmez, sıfır anakart masrafından kurtulursunuz.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-database text-emerald"></i> Veriler Korunur • Ekonomik Onarım</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20anakart/çip%20onarımı%20için%20cihazımı%20baktırmak%20istiyorum." target="_blank" class="ts-btn-wa">
+              Anakart Danış <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Kart 6: 15 Dakikada Değerinde Nakit Alım -->
+        <article class="troubleshoot-card">
+          <div class="ts-header">
+            <div class="ts-badge-problem"><i class="fa-solid fa-triangle-exclamation"></i> Çile: İnternette Günlerce Beklemek</div>
+            <div class="ts-icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          </div>
+          <h3 class="ts-title">Kargo Beklemeden, Fiyat Kırılmadan Anında Nakit</h3>
+          <p class="ts-desc">
+            Telefonunuzu internetten satmaya çalıştığınızda cihazı kargo ile gönderip günlerce beklemek ve sonradan çıkarılan bahanelerle teklifin düşürülmesi riskini yaşamayın.
+          </p>
+          <div class="ts-solution-box">
+            <div class="ts-solution-label"><i class="fa-solid fa-circle-check text-cyan"></i> CepHane Şeffaf Alım Süreci:</div>
+            <p>Esenyurt mağazamıza gelin, 15 dakikalık şeffaf donanım testi gözünüzün önünde yapılsın. En yüksek piyasa teklifiyle paranız anında elden nakit veya FAST ile IBAN'ınıza geçsin.</p>
+          </div>
+          <div class="ts-footer">
+            <span class="ts-benefit"><i class="fa-solid fa-money-bill-wave text-emerald"></i> 15 Dk Ekspertiz • Anında Nakit / FAST</span>
+            <a href="https://wa.me/905303543465?text=Merhaba%20CepHane,%20telefonumu%20satmak%20istiyorum,%20güncel%20fiyat%20öğrenebilir%20miyim?" target="_blank" class="ts-btn-wa">
+              Satış Teklifi <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Alt Güven Şeridi -->
+      <div class="troubleshoot-callout">
+        <div class="ts-callout-content">
+          <i class="fa-solid fa-circle-question text-cyan ts-callout-icon"></i>
+          <div>
+            <strong>Cihazınızdaki Sorun Listede Yok mu?</strong>
+            <p>Teknisyenimizle doğrudan WhatsApp üzerinden konuşun, arızanızı anlatın, ücretsiz ön teşhis ve tahmini masraf bilgisi alın.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20telefonumda%20farklı%20bir%20arıza%20var,%20danışmak%20istiyorum." target="_blank" class="btn btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Teknisyene Doğrudan Danış
+        </a>
       </div>
     </div>
   </section>
