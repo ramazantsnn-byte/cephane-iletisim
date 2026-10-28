@@ -905,6 +905,14 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
     });
   }
 
+  const spotlightMainImg = document.getElementById('spotlightMainImg');
+  const sifirColorImageMap = {
+    'Çöl Titanyum (Desert)': 'assets/iphone18pro_desert.png',
+    'Natürel Titanyum (Natural)': 'assets/iphone18pro_natural.png',
+    'Beyaz Titanyum (White)': 'assets/iphone18pro_white.png',
+    'Siyah Titanyum (Black)': 'assets/iphone18pro_black.png'
+  };
+
   if (sifirColorSwatches.length > 0) {
     sifirColorSwatches.forEach(swatch => {
       swatch.addEventListener('click', () => {
@@ -913,6 +921,15 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
         currentSifirColor = swatch.getAttribute('data-color') || 'Belirtilmedi';
         if (sifirColorName) {
           sifirColorName.textContent = currentSifirColor;
+        }
+        if (spotlightMainImg && sifirColorImageMap[currentSifirColor]) {
+          spotlightMainImg.style.opacity = '0.2';
+          spotlightMainImg.style.transform = 'scale(0.97)';
+          setTimeout(() => {
+            spotlightMainImg.src = sifirColorImageMap[currentSifirColor];
+            spotlightMainImg.style.opacity = '1';
+            spotlightMainImg.style.transform = '';
+          }, 140);
         }
         updateSifirWhatsAppUrl();
       });
