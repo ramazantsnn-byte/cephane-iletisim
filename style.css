@@ -870,21 +870,22 @@ body {
   user-select: none;
 }
 .gm-model-pill:hover {
-  border-color: var(--cyan-bright);
-  background: #15223c;
+  border-color: #0071e3;
+  background: #eff6ff;
+  color: #0071e3;
   transform: translateY(-2px);
 }
 .gm-model-pill.active {
-  background: var(--cyan-bright);
-  color: #030611;
+  background: #0071e3;
+  color: #ffffff;
   font-weight: 800;
-  border-color: var(--cyan-bright);
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.45);
+  border-color: #0071e3;
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35);
 }
 
 .gm-custom-model-box {
-  background: rgba(6, 11, 23, 0.6);
-  border: 1px dashed rgba(255, 255, 255, 0.16);
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
   border-radius: var(--radius-sm);
   padding: 16px;
   margin-bottom: 24px;
@@ -892,7 +893,7 @@ body {
 .gm-custom-note {
   display: block;
   font-size: 12.5px;
-  color: var(--titanium-silver);
+  color: #475569;
   margin-bottom: 8px;
 }
 .gm-custom-input-group {
@@ -911,8 +912,8 @@ body {
   margin-bottom: 28px;
 }
 .gm-q-block {
-  background: rgba(7, 12, 24, 0.7);
-  border: 1px solid var(--border-glass);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius-sm);
   padding: 16px 18px;
 }
@@ -922,7 +923,7 @@ body {
   gap: 10px;
   font-size: 14.5px;
   font-weight: 800;
-  color: var(--pure-white);
+  color: #0f172a;
   margin-bottom: 12px;
 }
 .gm-pills-row {
@@ -931,10 +932,10 @@ body {
   gap: 8px;
 }
 .gm-pill-btn {
-  background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a;
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: var(--radius-xs);
-  color: var(--titanium-silver);
+  color: #334155;
   padding: 9px 14px;
   font-size: 13px;
   font-weight: 700;
@@ -943,16 +944,16 @@ body {
   outline: none;
 }
 .gm-pill-btn:hover {
-  border-color: var(--cyan-bright);
-  color: var(--pure-white);
-  background: #162440;
+  border-color: #0071e3;
+  color: #0071e3;
+  background: #eff6ff;
 }
 .gm-pill-btn.active {
-  background: var(--cyan-bright);
-  color: #030611;
-  border-color: var(--cyan-bright);
+  background: #0071e3;
+  color: #ffffff;
+  border-color: #0071e3;
   font-weight: 800;
-  box-shadow: 0 0 14px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35);
 }
 
 /* Offer Card (Step 4) */
@@ -1672,8 +1673,8 @@ body {
 
 /* Footer */
 .footer {
-  background: #02040a;
-  border-top: 1px solid var(--border-subtle);
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
   padding: 60px 0 35px;
 }
 .footer-brand {
@@ -1682,20 +1683,23 @@ body {
 }
 .footer-brand p {
   font-size: 14px;
-  color: var(--text-dim);
+  color: #475569;
   margin-top: 10px;
   line-height: 1.6;
 }
 .footer-bottom {
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid #e2e8f0;
   padding-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: #64748b;
 }
-.footer-sub-text { font-size: 12px; }
+.footer-sub-text { font-size: 12px; color: #94a3b8; }
+.footer h4, .footer-col h4 { color: #0f172a !important; font-weight: 800; margin-bottom: 14px; }
+.footer ul li a { color: #475569; transition: color 0.15s; }
+.footer ul li a:hover { color: #0071e3; }
 
 /* ==========================================================================
    MODALLAR & DONANIM TEST LAB
@@ -2566,8 +2570,8 @@ body {
   align-items: center;
   gap: 16px;
   padding: 18px 22px;
-  background: rgba(18, 24, 38, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -2576,14 +2580,15 @@ body {
   overflow: hidden;
 }
 .lab-tab-btn:hover {
-  background: rgba(22, 32, 50, 0.9);
-  border-color: rgba(0, 229, 255, 0.35);
+  background: #eff6ff;
+  border-color: #0071e3;
   transform: translateY(-2px);
 }
 .lab-tab-btn.active {
-  background: #eff6ff; border-color: #0071e3; color: #0071e3;
-  border-color: var(--cyan-bright);
-  box-shadow: 0 0 25px rgba(0, 229, 255, 0.2), inset 0 0 20px rgba(0, 229, 255, 0.08);
+  background: #eff6ff;
+  border-color: #0071e3;
+  color: #0071e3;
+  box-shadow: 0 4px 18px rgba(0, 113, 227, 0.12);
 }
 .lab-tab-btn.active::after {
   content: '';
@@ -3163,8 +3168,8 @@ body {
 }
 
 .diag-cat-card {
-  background: rgba(22, 30, 48, 0.7);
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
   padding: 22px 18px;
   text-align: left;
@@ -3174,10 +3179,10 @@ body {
   flex-direction: column;
 }
 .diag-cat-card:hover {
-  background: rgba(26, 40, 68, 0.9);
-  border-color: var(--cyan-bright);
+  background: #f8fafc;
+  border-color: #0071e3;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 113, 227, 0.08);
 }
 .diag-icon-box {
   width: 44px;
