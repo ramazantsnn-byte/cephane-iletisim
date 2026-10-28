@@ -856,7 +856,7 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
   const sifirColorName = document.getElementById('sifirColorName');
   const btnSifirQuoteWhatsApp = document.getElementById('btnSifirQuoteWhatsApp');
 
-  let currentSifirModel = 'iPhone 18 Pro Max';
+  let currentSifirModel = 'iPhone 16 Pro Max (6.9")';
   let currentSifirCap = '128 GB';
   let currentSifirColor = 'Çöl Titanyum (Desert)';
   let currentSifirWarranty = 'Apple Türkiye (2 Yıl Garantili)';
