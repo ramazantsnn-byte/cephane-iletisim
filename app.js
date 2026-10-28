@@ -369,45 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* -------------------------------------------------------------
-     HOLOGRAPHIC CYBER CORE - 3D PARALLAX & TILT INTERACTION
-     ------------------------------------------------------------- */
-  const heroEl = document.getElementById('hero');
-  const holoCoreEl = document.getElementById('heroCyberCore');
-  const holoEmblemEl = document.getElementById('cyberHoloEmblem');
 
-  if (heroEl && holoCoreEl && window.matchMedia('(min-width: 768px)').matches) {
-    let targetX = 0, targetY = 0;
-    let currX = 0, currY = 0;
-
-    heroEl.addEventListener('mousemove', (e) => {
-      const rect = heroEl.getBoundingClientRect();
-      const relX = (e.clientX - rect.left) / rect.width - 0.5;
-      const relY = (e.clientY - rect.top) / rect.height - 0.5;
-      targetX = relX * 36;
-      targetY = relY * 26;
-    });
-
-    heroEl.addEventListener('mouseleave', () => {
-      targetX = 0;
-      targetY = 0;
-    });
-
-    function updateHoloParallax() {
-      currX += (targetX - currX) * 0.08;
-      currY += (targetY - currY) * 0.08;
-
-      if (holoCoreEl) {
-        holoCoreEl.style.transform = `translate(calc(-50% + ${currX}px), calc(-50% + ${currY}px))`;
-      }
-      if (holoEmblemEl) {
-        holoEmblemEl.style.transform = `perspective(800px) rotateY(${currX * 0.35}deg) rotateX(${-currY * 0.35}deg)`;
-      }
-
-      requestAnimationFrame(updateHoloParallax);
-    }
-    requestAnimationFrame(updateHoloParallax);
-  }
 
   /* =============================================================
      BÖLÜM 2.5: CEPHANE DİJİTAL SERVİS LABORATUVARI MOTORLARI

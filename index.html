@@ -169,13 +169,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link rel="stylesheet" href="style.css?v=12.0_pure_apple_white">
+  <link rel="stylesheet" href="style.css?v=13.0_perf_60fps">
 </head>
 <body>
-
-  <!-- Ambient Glows -->
-  <div class="ambient-glow ambient-glow-top"></div>
-  <div class="ambient-glow ambient-glow-center"></div>
 
   <!-- Top Announcement Bar -->
   <div class="top-banner">
@@ -605,7 +601,7 @@
 
       <div class="repair-grid" style="margin-top: 40px;">
         <div class="repair-image-side">
-          <img src="assets/repair_lab.jpg" alt="CepHane Hassas Lehim ve Ekran Onarım Laboratuvarı" class="repair-img">
+          <img src="assets/repair_lab.jpg" alt="CepHane Hassas Lehim ve Ekran Onarım Laboratuvarı" class="repair-img" loading="lazy" decoding="async">
           <div class="repair-badges-box">
             <div class="r-badge"><i class="fa-solid fa-microchip text-cyan"></i> Mikroskop Altında Çip & Bionic Anakart Onarımı</div>
             <div class="r-badge"><i class="fa-solid fa-bolt text-cyan"></i> Lazerle Kasa Açmadan Arka Cam Yenileme</div>
@@ -1152,7 +1148,7 @@
 
       <div class="store-gallery-grid">
         <div class="store-card">
-          <img src="assets/store_interior.jpg" alt="CepHane İletişim Showroom" class="store-card-img">
+          <img src="assets/store_interior.jpg" alt="CepHane İletişim Showroom" class="store-card-img" loading="lazy" decoding="async">
           <div class="store-card-overlay">
             <span class="store-tag"><i class="fa-solid fa-store"></i> CepHane İletişim Mağaza İçi</span>
             <h3>Orijinal Logo Duvarı & Danışma Masası</h3>
@@ -1161,7 +1157,7 @@
         </div>
 
         <div class="store-card">
-          <img src="assets/store_vitrine.jpg" alt="CepHane İletişim Vitrini ve Cihaz Stokları" class="store-card-img">
+          <img src="assets/store_vitrine.jpg" alt="CepHane İletişim Vitrini ve Cihaz Stokları" class="store-card-img" loading="lazy" decoding="async">
           <div class="store-card-overlay">
             <span class="store-tag"><i class="fa-solid fa-mobile-screen"></i> Vitrin ve Aksesuar Alanı</span>
             <h3>Geniş Sıfır ve 2. El Cihaz Vitrini</h3>
@@ -1250,15 +1246,13 @@
         </div>
       </div>
 
-      <!-- SPOTLIGHT: iPHONE 18 PRO & 18 PRO MAX KUTU AÇILIŞ KARTI -->
+      <!-- SPOTLIGHT: iPHONE 16 PRO & 16 PRO MAX KUTU AÇILIŞ KARTI -->
       <div class="sifir-spotlight-card">
         <div class="spotlight-visual">
-          <div class="spotlight-badge"><i class="fa-solid fa-sparkles text-gold"></i> Gelecek Nesil Flagship • 2026 Seri</div>
+          <div class="spotlight-badge"><i class="fa-solid fa-sparkles text-gold"></i> Apple Flagship • Orijinal Seri</div>
           <div class="spotlight-media-container">
-            <video class="spotlight-video" autoplay muted loop playsinline poster="assets/iphone18pro_concept.jpg">
-              <source src="assets/iphone18pro_reveal.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay-badge"><i class="fa-solid fa-circle-play text-cyan"></i> 3D Titanyum Gövde & Lens Teaser</div>
+            <img src="assets/iphone16pro_sealed.jpg" alt="Apple iPhone 16 Pro Kapalı Kutu Jelatinli" class="spotlight-img" loading="lazy" decoding="async">
+            <div class="video-overlay-badge"><i class="fa-solid fa-shield-check text-cyan"></i> 2 Yıl Apple TR Garantili</div>
           </div>
           <div class="spotlight-watermark">KAPALI KUTU • JELATİNLİ</div>
         </div>
@@ -1266,12 +1260,12 @@
         <div class="spotlight-content">
           <div class="spotlight-brand-row">
             <span class="spotlight-tag"><i class="fa-brands fa-apple"></i> Apple Flagship</span>
-            <span class="spotlight-stock"><span class="live-dot-green"></span> Esenyurt Şubemizde Stok & Ön Talep</span>
+            <span class="spotlight-stock"><span class="live-dot-green"></span> Esenyurt Şubemizde Hazır Stok</span>
           </div>
 
-          <h3 class="spotlight-title">iPhone 18 Pro & 18 Pro Max</h3>
+          <h3 class="spotlight-title">iPhone 16 Pro & 16 Pro Max</h3>
           <p class="spotlight-desc">
-            Sıvı titanyum gövde, safir kristal lens mimarisi, A19 Pro Bionic yapay zeka işlemcisi. Fabrika çıkışlı orijinal jelatinli sıfır kapalı kutu.
+            Grade 5 Titanyum gövde, Kamera Denetimi, Apple Intelligence ve A18 Pro çip. Fabrika çıkışlı sıfır kapalı kutu, faturalı ve Apple Türkiye garantili.
           </p>
 
           <!-- Yapılandırıcı: Model Seçimi -->
@@ -1356,7 +1350,7 @@
         <div class="product-card">
           <div class="product-badge">En Çok Satan</div>
           <div class="product-img-box">
-            <img src="assets/iphone15pro.jpg" alt="Apple iPhone 15 Pro Natural Titanium" class="product-real-img">
+            <img src="assets/iphone15pro.jpg" alt="Apple iPhone 15 Pro Natural Titanium" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>iPhone 15 Pro 128GB</h3>
           <p class="product-specs">Doğal Titanyum • Pil %94 • Kutulu & Faturalı</p>
@@ -1370,7 +1364,7 @@
         <div class="product-card">
           <div class="product-badge">Fırsat Ürünü</div>
           <div class="product-img-box">
-            <img src="assets/iphone14pro.jpg" alt="Apple iPhone 14 Pro Max Deep Purple" class="product-real-img">
+            <img src="assets/iphone14pro.jpg" alt="Apple iPhone 14 Pro Max Deep Purple" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>iPhone 14 Pro Max 256GB</h3>
           <p class="product-specs">Derin Mor • Pil %91 • Hatasız Çiziksiz</p>
@@ -1384,7 +1378,7 @@
         <div class="product-card">
           <div class="product-badge">Sıfır Kutu</div>
           <div class="product-img-box">
-            <img src="assets/iphone13.jpg" alt="Apple iPhone 13 Midnight" class="product-real-img">
+            <img src="assets/iphone13.jpg" alt="Apple iPhone 13 Midnight" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>iPhone 13 128GB</h3>
           <p class="product-specs">Gece Yarısı • 2 Yıl Apple Türkiye Garantili</p>
@@ -1398,7 +1392,7 @@
         <div class="product-card">
           <div class="product-badge">Orijinal Apple</div>
           <div class="product-img-box">
-            <img src="assets/airpodspro.jpg" alt="Apple AirPods Pro 2 Type-C" class="product-real-img">
+            <img src="assets/airpodspro.jpg" alt="Apple AirPods Pro 2 Type-C" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>AirPods Pro 2 (Type-C)</h3>
           <p class="product-specs">Aktif Gürültü Engelleme • Sıfır Jelatinli</p>
@@ -1525,6 +1519,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=9.0_google_seo"></script>
+  <script src="app.js?v=13.0_perf_60fps"></script>
 </body>
 </html>
