@@ -3599,6 +3599,32 @@ body {
   box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
 }
 
+/* Series Pills VIP Styling */
+.series-pills {
+  margin-bottom: 4px;
+}
+.series-pills .cfg-pill {
+  padding: 9px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: var(--radius-full);
+  color: #e2e8f0;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.series-pills .cfg-pill:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: #d4af37;
+  color: #fff;
+}
+.series-pills .cfg-pill.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border-color: #d4af37;
+  color: #d4af37;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+}
+
 /* Color Swatches */
 .color-swatches {
   display: flex;
@@ -3924,6 +3950,9 @@ img, video {
   }
   #sifirCapacityPills {
     grid-template-columns: repeat(4, 1fr) !important;
+  }
+  #sifirSeriesPills {
+    grid-template-columns: repeat(3, 1fr) !important;
   }
   .cfg-pill {
     padding: 10px 8px !important;

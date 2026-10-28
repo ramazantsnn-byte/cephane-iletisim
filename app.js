@@ -845,108 +845,434 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
   }
 
   // ==========================================
-  // SIFIR KAPALI KUTU CİHAZ YAPILANDIRICI & ANINDA FİYAT MOTORU
   // ==========================================
-  const sifirModelPills = document.querySelectorAll('#sifirModelPills .cfg-pill');
-  const sifirCapPills = document.querySelectorAll('#sifirCapacityPills .cfg-pill');
-  const sifirColorSwatches = document.querySelectorAll('#sifirColorSwatches .color-swatch');
+  // APPLE FLAGSHIP: DİNAMİK MODEL & RENK YAPILANDIRICI & WHATSAPP QUOTE
+  // ==========================================
+  const APPLE_SERIES_CONFIG = {
+    '18': {
+      name: 'iPhone 18 Serisi',
+      badge: 'Apple Flagship • Gelecek Nesil Pro',
+      watermark: 'KAPALI KUTU • 2 YIL APPLE TR',
+      tag: 'Apple Flagship 2026/2027',
+      models: {
+        'iPhone 18 Pro Max': {
+          title: 'iPhone 18 Pro Max',
+          desc: '6.9 inç sıvı titanyum gövde, Kamera Denetimi, 2nm A20 Pro Bionic çip, 48MP üçlü periskop lens ve Apple Intelligence. Fabrika çıkışlı sıfır kapalı kutu, faturalı ve 2 Yıl Apple Türkiye garantili.',
+          capacities: ['256 GB', '512 GB', '1 TB', '2 TB'],
+          colors: [
+            { name: 'Çöl Titanyum (Desert)', hex: '#c5a582', img: 'assets/models/iphone18_pro_max_desert.png' },
+            { name: 'Natürel Titanyum (Natural)', hex: '#9a9893', img: 'assets/models/iphone18_pro_max_natural.png' },
+            { name: 'Beyaz Titanyum (White)', hex: '#f2f1ed', img: 'assets/models/iphone18_pro_max_white.png' },
+            { name: 'Siyah Titanyum (Black)', hex: '#3b3a39', img: 'assets/models/iphone18_pro_max_black.png' },
+            { name: 'Bordo Titanyum (Burgundy)', hex: '#582e35', img: 'assets/models/iphone18_pro_max_burgundy.png' }
+          ]
+        },
+        'iPhone 18 Pro': {
+          title: 'iPhone 18 Pro',
+          desc: '6.3 inç kompakt Pro güç, sıvı titanyum gövde, ProMotion 120Hz, A20 Pro çip ve Apple Intelligence. 2 Yıl Apple TR garantili sıfır kapalı kutu.',
+          capacities: ['256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Çöl Titanyum (Desert)', hex: '#c5a582', img: 'assets/models/iphone18_pro_max_desert.png' },
+            { name: 'Natürel Titanyum (Natural)', hex: '#9a9893', img: 'assets/models/iphone18_pro_max_natural.png' },
+            { name: 'Beyaz Titanyum (White)', hex: '#f2f1ed', img: 'assets/models/iphone18_pro_max_white.png' },
+            { name: 'Siyah Titanyum (Black)', hex: '#3b3a39', img: 'assets/models/iphone18_pro_max_black.png' },
+            { name: 'Bordo Titanyum (Burgundy)', hex: '#582e35', img: 'assets/models/iphone18_pro_max_burgundy.png' }
+          ]
+        },
+        'iPhone 18': {
+          title: 'iPhone 18',
+          desc: 'Renkle işlenmiş arka cam, Dinamik Ada, 48MP Fusion ve yeni nesil A20 işlemci gücü. Canlı renkler ve üstün pil performansı.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Ultramarin Mavi', hex: '#37538c', img: 'assets/models/iphone18_ultramarine.png' },
+            { name: 'Deniz Mavisi (Teal)', hex: '#8da5a5', img: 'assets/models/iphone18_teal.png' },
+            { name: 'Pembe (Pink)', hex: '#e39ca9', img: 'assets/models/iphone18_pink.png' },
+            { name: 'Beyaz (White)', hex: '#fafafa', img: 'assets/models/iphone18_white.png' },
+            { name: 'Siyah (Black)', hex: '#3c4043', img: 'assets/models/iphone18_black.png' }
+          ]
+        }
+      }
+    },
+    '17': {
+      name: 'iPhone 17 Serisi',
+      badge: 'Apple Flagship • 17 Serisi Orijinal',
+      watermark: 'KAPALI KUTU • iPHONE 17',
+      tag: 'Apple 17 Ailesi',
+      models: {
+        'iPhone 17 Pro Max': {
+          title: 'iPhone 17 Pro Max',
+          desc: 'Grade 5 Titanyum çerçeve, Ceramic Shield 2, 48MP üçlü periskop lens ve A19 Pro Bionic çip. Bordo Titanyum ve Buzul Titanyum gibi özel renk seçenekleriyle.',
+          capacities: ['256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Bordo Titanyum (Burgundy)', hex: '#582e35', img: 'assets/models/iphone17_pro_max_burgundy.png' },
+            { name: 'Buzul Titanyumu (Glacier)', hex: '#989793', img: 'assets/models/iphone17_pro_max_glacier.png' },
+            { name: 'Gümüş Titanyum (Silver)', hex: '#e2e4e1', img: 'assets/models/iphone17_pro_max_silver.png' },
+            { name: 'Gece Titanyumu (Space Black)', hex: '#343332', img: 'assets/models/iphone17_pro_max_black.png' }
+          ]
+        },
+        'iPhone 17 Pro': {
+          title: 'iPhone 17 Pro',
+          desc: '6.3 inç ProMotion Super Retina XDR ekran, Grade 5 titanyum, profesyonel üçlü stüdyo kamera ve A19 Pro güç mimarisi.',
+          capacities: ['256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Bordo Titanyum (Burgundy)', hex: '#582e35', img: 'assets/models/iphone17_pro_max_burgundy.png' },
+            { name: 'Buzul Titanyumu (Glacier)', hex: '#989793', img: 'assets/models/iphone17_pro_max_glacier.png' },
+            { name: 'Gümüş Titanyum (Silver)', hex: '#e2e4e1', img: 'assets/models/iphone17_pro_max_silver.png' },
+            { name: 'Gece Titanyumu (Space Black)', hex: '#343332', img: 'assets/models/iphone17_pro_max_black.png' }
+          ]
+        },
+        'iPhone 17 Air / Slim': {
+          title: 'iPhone 17 Air / Slim',
+          desc: '5.6mm ultra ince gövde, tüy kadar hafif alüminyum profil, Dinamik Ada ve A19 işlemci. Apple tarihinin en ince ve zarif iPhone modeli.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Gök Mavisi (Sky Blue)', hex: '#9bc3d4', img: 'assets/models/iphone17_air_sky_blue.png' },
+            { name: 'Yıldız Beyazı (Star White)', hex: '#f3f2ee', img: 'assets/models/iphone17_air_star_white.png' },
+            { name: 'Açık Altın (Light Gold)', hex: '#e5d7c3', img: 'assets/models/iphone17_air_light_gold.png' },
+            { name: 'Uzay Siyahı (Space Black)', hex: '#393b42', img: 'assets/models/iphone17_air_space_black.png' }
+          ]
+        },
+        'iPhone 17': {
+          title: 'iPhone 17',
+          desc: 'Pastel renk tonları, 48MP Fusion ana kamera, Kamera Denetimi ve A19 işlemci. Dayanıklı Ceramic Shield ön cam ve tüm gün süren pil.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Lavanta Mor', hex: '#b6a5d4', img: 'assets/models/iphone17_lavender.png' },
+            { name: 'Sis Mavisi', hex: '#a2b8c8', img: 'assets/models/iphone17_mist_blue.png' },
+            { name: 'Adaçayı Yeşili', hex: '#a8bda7', img: 'assets/models/iphone17_sage.png' },
+            { name: 'Beyaz', hex: '#fafafa', img: 'assets/models/iphone17_white.png' },
+            { name: 'Siyah', hex: '#3c4043', img: 'assets/models/iphone17_black.png' }
+          ]
+        }
+      }
+    },
+    '16': {
+      name: 'iPhone 16 Serisi',
+      badge: 'Apple Flagship • Resmi 16 Serisi',
+      watermark: 'KAPALI KUTU • iPHONE 16',
+      tag: 'Apple 16 Ailesi',
+      models: {
+        'iPhone 16 Pro Max': {
+          title: 'iPhone 16 Pro Max',
+          desc: '6.9 inç Super Retina XDR ekran, Grade 5 Titanyum kasa, Kamera Denetimi, 48MP Fusion ve A18 Pro Bionic çip. Apple Intelligence destekli.',
+          capacities: ['256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Çöl Titanyum (Desert)', hex: '#c5a582', img: 'assets/models/iphone16_pro_max_desert.png' },
+            { name: 'Natürel Titanyum (Natural)', hex: '#9a9893', img: 'assets/models/iphone16_pro_max_natural.png' },
+            { name: 'Beyaz Titanyum (White)', hex: '#f2f1ed', img: 'assets/models/iphone16_pro_max_white.png' },
+            { name: 'Siyah Titanyum (Black)', hex: '#3b3a39', img: 'assets/models/iphone16_pro_max_black.png' }
+          ]
+        },
+        'iPhone 16 Pro': {
+          title: 'iPhone 16 Pro',
+          desc: '6.3 inç Titanyum tasarım, Kamera Denetimi, 120Hz ProMotion ve A18 Pro çip gücü. Sıfır kapalı kutu, faturalı 2 yıl Apple TR garantili.',
+          capacities: ['128 GB', '256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Çöl Titanyum (Desert)', hex: '#c5a582', img: 'assets/models/iphone16_pro_max_desert.png' },
+            { name: 'Natürel Titanyum (Natural)', hex: '#9a9893', img: 'assets/models/iphone16_pro_max_natural.png' },
+            { name: 'Beyaz Titanyum (White)', hex: '#f2f1ed', img: 'assets/models/iphone16_pro_max_white.png' },
+            { name: 'Siyah Titanyum (Black)', hex: '#3b3a39', img: 'assets/models/iphone16_pro_max_black.png' }
+          ]
+        },
+        'iPhone 16': {
+          title: 'iPhone 16',
+          desc: 'Renkle işlenmiş arka cam, Dinamik Ada, Kamera Denetimi, 48MP 2 kat telefoto ve A18 çip. Esenyurt şubemizde anında teslim.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Ultramarin Mavi', hex: '#37538c', img: 'assets/models/iphone16_ultramarine.png' },
+            { name: 'Deniz Mavisi (Teal)', hex: '#8da5a5', img: 'assets/models/iphone16_teal.png' },
+            { name: 'Pembe (Pink)', hex: '#e39ca9', img: 'assets/models/iphone16_pink.png' },
+            { name: 'Beyaz (White)', hex: '#fafafa', img: 'assets/models/iphone16_white.png' },
+            { name: 'Siyah (Black)', hex: '#3c4043', img: 'assets/models/iphone16_black.png' }
+          ]
+        }
+      }
+    },
+    '15': {
+      name: 'iPhone 15 Serisi',
+      badge: 'Apple Flagship • Resmi 15 Serisi',
+      watermark: 'KAPALI KUTU • iPHONE 15',
+      tag: 'Apple 15 Ailesi',
+      models: {
+        'iPhone 15 Pro Max': {
+          title: 'iPhone 15 Pro Max',
+          desc: 'Hafif titanyum tasarım, Eylem Düğmesi, 5x optik zoomlu telefoto kamera ve A17 Pro çip. Kapalı kutu, faturalı 2 yıl garantili.',
+          capacities: ['256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Natürel Titanyum', hex: '#9a9893', img: 'assets/models/iphone15_pro_max_natural.png' },
+            { name: 'Mavi Titanyum', hex: '#3a4454', img: 'assets/models/iphone15_pro_max_blue.png' },
+            { name: 'Beyaz Titanyum', hex: '#e3e4e6', img: 'assets/models/iphone15_pro_max_white.png' },
+            { name: 'Siyah Titanyum', hex: '#3e3d42', img: 'assets/models/iphone15_pro_max_black.png' }
+          ]
+        },
+        'iPhone 15 Pro': {
+          title: 'iPhone 15 Pro',
+          desc: '6.1 inç titanyum kasa, ProMotion 120Hz ekran, A17 Pro Bionic ve USB-C 3 hız desteği.',
+          capacities: ['128 GB', '256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Natürel Titanyum', hex: '#9a9893', img: 'assets/models/iphone15_pro_max_natural.png' },
+            { name: 'Mavi Titanyum', hex: '#3a4454', img: 'assets/models/iphone15_pro_max_blue.png' },
+            { name: 'Beyaz Titanyum', hex: '#e3e4e6', img: 'assets/models/iphone15_pro_max_white.png' },
+            { name: 'Siyah Titanyum', hex: '#3e3d42', img: 'assets/models/iphone15_pro_max_black.png' }
+          ]
+        },
+        'iPhone 15': {
+          title: 'iPhone 15',
+          desc: 'Dinamik Ada, 48MP ana kamera, USB-C bağlantısı ve renk infüzyonlu arka cam. A16 Bionic işlemci.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Pembe', hex: '#e8c4c7', img: 'assets/models/iphone15_pink.png' },
+            { name: 'Sarı', hex: '#ebe3b5', img: 'assets/models/iphone15_yellow.png' },
+            { name: 'Yeşil', hex: '#c8d8c3', img: 'assets/models/iphone15_green.png' },
+            { name: 'Mavi', hex: '#d1dbe5', img: 'assets/models/iphone15_blue.png' },
+            { name: 'Siyah', hex: '#35393b', img: 'assets/models/iphone15_black.png' }
+          ]
+        }
+      }
+    },
+    '14': {
+      name: 'iPhone 14 Serisi',
+      badge: 'Apple Flagship • Resmi 14 Serisi',
+      watermark: 'KAPALI KUTU • iPHONE 14',
+      tag: 'Apple 14 Ailesi',
+      models: {
+        'iPhone 14 Pro Max': {
+          title: 'iPhone 14 Pro Max',
+          desc: 'Dinamik Ada, Hep Açık Ekran, 48MP Pro kamera sistemi ve A16 Bionic çip. Derin Mor ve Altın seçenekleriyle.',
+          capacities: ['128 GB', '256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Derin Mor', hex: '#493c4e', img: 'assets/models/iphone14_pro_max_purple.png' },
+            { name: 'Altın', hex: '#f4e8ce', img: 'assets/models/iphone14_pro_max_gold.png' },
+            { name: 'Gümüş', hex: '#e3e4e6', img: 'assets/models/iphone14_pro_max_silver.png' },
+            { name: 'Uzay Siyahı', hex: '#3b393c', img: 'assets/models/iphone14_pro_max_black.png' }
+          ]
+        },
+        'iPhone 14': {
+          title: 'iPhone 14',
+          desc: 'Gelişmiş ikili kamera sistemi, Trafik Kazası Algılama, uzun pil ömrü ve Ceramic Shield ön yüzey.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Mavi', hex: '#a0b3c6', img: 'assets/models/iphone14_blue.png' },
+            { name: 'Mor', hex: '#e4dbed', img: 'assets/models/iphone14_purple.png' },
+            { name: 'Yıldız Işığı', hex: '#faf6f2', img: 'assets/models/iphone14_starlight.png' },
+            { name: 'Gece Yarısı', hex: '#222930', img: 'assets/models/iphone14_midnight.png' },
+            { name: 'Kırmızı', hex: '#ba0c2f', img: 'assets/models/iphone14_red.png' }
+          ]
+        }
+      }
+    },
+    '13': {
+      name: 'iPhone 13 Serisi',
+      badge: 'Apple Flagship • Efsane 13 Serisi',
+      watermark: 'KAPALI KUTU • iPHONE 13',
+      tag: 'Apple 13 Ailesi',
+      models: {
+        'iPhone 13 Pro Max': {
+          title: 'iPhone 13 Pro Max',
+          desc: '120Hz ProMotion Super Retina XDR ekran, sinematik mod, 3x optik zoom ve cerrahi sınıf paslanmaz çelik kasa.',
+          capacities: ['128 GB', '256 GB', '512 GB', '1 TB'],
+          colors: [
+            { name: 'Sierra Mavisi', hex: '#97b0c7', img: 'assets/models/iphone13_pro_max_sierra_blue.png' },
+            { name: 'Grafit', hex: '#54524f', img: 'assets/models/iphone13_pro_max_graphite.png' },
+            { name: 'Altın', hex: '#f9e5c9', img: 'assets/models/iphone13_pro_max_gold.png' },
+            { name: 'Gümüş', hex: '#f5f5f7', img: 'assets/models/iphone13_pro_max_silver.png' },
+            { name: 'Alpin Yeşili', hex: '#505c4e', img: 'assets/models/iphone13_pro_max_alpine_green.png' }
+          ]
+        },
+        'iPhone 13': {
+          title: 'iPhone 13',
+          desc: 'Çapraz ikili kamera sistemi, A15 Bionic çip, OLED Super Retina XDR ekran ve dayanıklı tasarım.',
+          capacities: ['128 GB', '256 GB', '512 GB'],
+          colors: [
+            { name: 'Mavi', hex: '#215e7d', img: 'assets/models/iphone13_blue.png' },
+            { name: 'Pembe', hex: '#fae0d8', img: 'assets/models/iphone13_pink.png' },
+            { name: 'Gece Yarısı', hex: '#232a31', img: 'assets/models/iphone13_midnight.png' },
+            { name: 'Yıldız Işığı', hex: '#faf6f2', img: 'assets/models/iphone13_starlight.png' },
+            { name: 'Yeşil', hex: '#3b4e38', img: 'assets/models/iphone13_green.png' }
+          ]
+        }
+      }
+    }
+  };
+
+  // Configurator DOM elementleri
+  const sifirSeriesPillsContainer = document.getElementById('sifirSeriesPills');
+  const sifirModelPillsContainer = document.getElementById('sifirModelPills');
+  const sifirCapacityPillsContainer = document.getElementById('sifirCapacityPills');
+  const sifirColorSwatchesContainer = document.getElementById('sifirColorSwatches');
+  const sifirColorNameEl = document.getElementById('sifirColorName');
+  const spotlightBadgeEl = document.getElementById('spotlightBadge');
+  const spotlightWatermarkEl = document.getElementById('spotlightWatermark');
+  const spotlightTagEl = document.getElementById('spotlightTag');
+  const spotlightTitleEl = document.getElementById('spotlightTitle');
+  const spotlightDescEl = document.getElementById('spotlightDesc');
+  const spotlightMainImgEl = document.getElementById('spotlightMainImg');
   const sifirWarrantyPills = document.querySelectorAll('#sifirWarrantyPills .cfg-pill');
   const chkSifirTradeIn = document.getElementById('chkSifirTradeIn');
   const inputSifirOldModel = document.getElementById('inputSifirOldModel');
-  const sifirColorName = document.getElementById('sifirColorName');
   const btnSifirQuoteWhatsApp = document.getElementById('btnSifirQuoteWhatsApp');
 
-  let currentSifirModel = 'iPhone 18 Pro Max (6.9")';
-  let currentSifirCap = '128 GB';
-  let currentSifirColor = 'Çöl Titanyum (Desert)';
-  let currentSifirWarranty = 'Apple Türkiye (2 Yıl Garantili)';
+  // Configurator Aktif Durum Değişkenleri
+  let currentSeriesKey = '18';
+  let currentModelKey = 'iPhone 18 Pro Max';
+  let currentCapVal = '256 GB';
+  let currentColorObj = null;
+  let currentWarrantyVal = 'Apple Türkiye 2 Yıl Garantili';
 
   function updateSifirWhatsAppUrl() {
-    let msg = `Merhaba CepHane İletişim, sitenizden sıfır kapalı kutu cihaz için güncel fiyat ve stok teyidi almak istiyorum.
-
-📦 *Talep Edilen Sıfır Cihaz:*
-• Model: *${currentSifirModel}*
-• Dahili Hafıza: *${currentSifirCap}*
-• Renk: *${currentSifirColor}*
-• Garanti Tipi: *${currentSifirWarranty}*`;
+    let msg = `Merhaba CepHane İletişim, sitenizden sıfır kapalı kutu Apple cihazı için güncel fiyat ve stok teyidi almak istiyorum.\n\n📦 *Talep Edilen Sıfır Cihaz:*\n• Seri: *${APPLE_SERIES_CONFIG[currentSeriesKey] ? APPLE_SERIES_CONFIG[currentSeriesKey].name : 'Apple'}*\n• Model: *${currentModelKey}*\n• Dahili Hafıza: *${currentCapVal}*\n• Renk: *${currentColorObj ? currentColorObj.name : 'Standart'}*\n• Garanti: *${currentWarrantyVal}*`;
 
     if (chkSifirTradeIn && chkSifirTradeIn.checked) {
       const oldModelVal = (inputSifirOldModel && inputSifirOldModel.value.trim()) ? inputSifirOldModel.value.trim() : 'Mevcut telefonumu takasa verip üzerine ödeme yapmak istiyorum';
-      msg += `\n\n🔄 *Takas (Eskiyi Getir Yeniyi Götür):*
-• Takasa Verilecek Cihaz: *${oldModelVal}*`;
+      msg += `\n\n🔄 *Takas Talebi:*\n• Takasa Verilecek Telefonum: *${oldModelVal}*`;
     }
 
-    msg += `\n\n💬 _Esenyurt şubenizde bu cihazın kapalı kutu güncel nakit/havale fiyatını ve teslimat durumunu öğrenebilir miyim?_`;
+    msg += `\n\n💬 _Esenyurt şubenizde bu cihazın kapalı kutu güncel nakit/havale liste fiyatını ve hazır stok durumunu öğrenebilir miyim?_`;
 
     if (btnSifirQuoteWhatsApp) {
       btnSifirQuoteWhatsApp.href = `https://wa.me/${CEPHANE_PHONE}?text=${encodeURIComponent(msg)}`;
     }
   }
 
-  if (sifirModelPills.length > 0) {
-    sifirModelPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        sifirModelPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentSifirModel = pill.getAttribute('data-model') || pill.textContent.trim();
-        updateSifirWhatsAppUrl();
-      });
-    });
+  function applyColor(colorObj) {
+    if (!colorObj) return;
+    currentColorObj = colorObj;
+    if (sifirColorNameEl) {
+      sifirColorNameEl.textContent = colorObj.name;
+    }
+    if (spotlightMainImgEl && colorObj.img) {
+      spotlightMainImgEl.style.opacity = '0.2';
+      spotlightMainImgEl.style.transform = 'scale(0.97)';
+      setTimeout(() => {
+        spotlightMainImgEl.src = colorObj.img;
+        spotlightMainImgEl.alt = `${currentModelKey} ${colorObj.name} Kapalı Kutu Sıfır`;
+        spotlightMainImgEl.style.opacity = '1';
+        spotlightMainImgEl.style.transform = '';
+      }, 120);
+    }
+    updateSifirWhatsAppUrl();
   }
 
-  if (sifirCapPills.length > 0) {
-    sifirCapPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        sifirCapPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentSifirCap = pill.getAttribute('data-cap') || pill.textContent.trim();
-        updateSifirWhatsAppUrl();
+  function renderModelDetails(modelKey) {
+    const series = APPLE_SERIES_CONFIG[currentSeriesKey];
+    if (!series || !series.models[modelKey]) return;
+    const model = series.models[modelKey];
+    currentModelKey = modelKey;
+
+    if (spotlightTitleEl) spotlightTitleEl.textContent = model.title;
+    if (spotlightDescEl) spotlightDescEl.textContent = model.desc;
+    if (spotlightBadgeEl) spotlightBadgeEl.innerHTML = `<i class="fa-solid fa-sparkles text-gold"></i> ${series.badge}`;
+    if (spotlightWatermarkEl) spotlightWatermarkEl.textContent = series.watermark;
+    if (spotlightTagEl) spotlightTagEl.innerHTML = `<i class="fa-brands fa-apple"></i> ${series.tag}`;
+
+    // Render Capacities
+    if (sifirCapacityPillsContainer) {
+      sifirCapacityPillsContainer.innerHTML = '';
+      currentCapVal = model.capacities[0] || '128 GB';
+      model.capacities.forEach((cap, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `cfg-pill ${idx === 0 ? 'active' : ''}`;
+        btn.setAttribute('data-cap', cap);
+        btn.textContent = cap;
+        btn.addEventListener('click', () => {
+          sifirCapacityPillsContainer.querySelectorAll('.cfg-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCapVal = cap;
+          updateSifirWhatsAppUrl();
+        });
+        sifirCapacityPillsContainer.appendChild(btn);
       });
-    });
+    }
+
+    // Render Colors
+    if (sifirColorSwatchesContainer) {
+      sifirColorSwatchesContainer.innerHTML = '';
+      model.colors.forEach((c, idx) => {
+        const swatch = document.createElement('button');
+        swatch.type = 'button';
+        swatch.className = `color-swatch ${idx === 0 ? 'active' : ''}`;
+        swatch.setAttribute('data-color', c.name);
+        swatch.style.setProperty('--swatch-color', c.hex);
+        swatch.title = c.name;
+        swatch.addEventListener('click', () => {
+          sifirColorSwatchesContainer.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+          swatch.classList.add('active');
+          applyColor(c);
+        });
+        sifirColorSwatchesContainer.appendChild(swatch);
+      });
+      // Apply first color
+      if (model.colors.length > 0) {
+        applyColor(model.colors[0]);
+      }
+    }
   }
 
-  const spotlightMainImg = document.getElementById('spotlightMainImg');
-  const sifirColorImageMap = {
-    'Çöl Titanyum (Desert)': 'assets/iphone18pro_desert.png',
-    'Natürel Titanyum (Natural)': 'assets/iphone18pro_natural.png',
-    'Beyaz Titanyum (White)': 'assets/iphone18pro_white.png',
-    'Siyah Titanyum (Black)': 'assets/iphone18pro_black.png'
-  };
+  function renderSeries(seriesKey) {
+    const series = APPLE_SERIES_CONFIG[seriesKey];
+    if (!series) return;
+    currentSeriesKey = seriesKey;
 
-  if (sifirColorSwatches.length > 0) {
-    sifirColorSwatches.forEach(swatch => {
-      swatch.addEventListener('click', () => {
-        sifirColorSwatches.forEach(s => s.classList.remove('active'));
-        swatch.classList.add('active');
-        currentSifirColor = swatch.getAttribute('data-color') || 'Belirtilmedi';
-        if (sifirColorName) {
-          sifirColorName.textContent = currentSifirColor;
+    // Series pills active state
+    if (sifirSeriesPillsContainer) {
+      sifirSeriesPillsContainer.querySelectorAll('.cfg-pill').forEach(b => {
+        if (b.getAttribute('data-series') === seriesKey) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
         }
-        if (spotlightMainImg && sifirColorImageMap[currentSifirColor]) {
-          spotlightMainImg.style.opacity = '0.2';
-          spotlightMainImg.style.transform = 'scale(0.97)';
-          setTimeout(() => {
-            spotlightMainImg.src = sifirColorImageMap[currentSifirColor];
-            spotlightMainImg.style.opacity = '1';
-            spotlightMainImg.style.transform = '';
-          }, 140);
-        }
-        updateSifirWhatsAppUrl();
+      });
+    }
+
+    // Render Model Pills for this Series
+    if (sifirModelPillsContainer) {
+      sifirModelPillsContainer.innerHTML = '';
+      const modelKeys = Object.keys(series.models);
+      modelKeys.forEach((mKey, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `cfg-pill ${idx === 0 ? 'active' : ''}`;
+        btn.setAttribute('data-model', mKey);
+        btn.textContent = mKey;
+        btn.addEventListener('click', () => {
+          sifirModelPillsContainer.querySelectorAll('.cfg-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderModelDetails(mKey);
+        });
+        sifirModelPillsContainer.appendChild(btn);
+      });
+
+      // Default select first model in this series
+      if (modelKeys.length > 0) {
+        renderModelDetails(modelKeys[0]);
+      }
+    }
+  }
+
+  // Bind Series Pills Click
+  if (sifirSeriesPillsContainer) {
+    sifirSeriesPillsContainer.querySelectorAll('.cfg-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const sKey = pill.getAttribute('data-series');
+        renderSeries(sKey);
       });
     });
   }
 
+  // Bind Warranty Pills Click
   if (sifirWarrantyPills.length > 0) {
     sifirWarrantyPills.forEach(pill => {
       pill.addEventListener('click', () => {
         sifirWarrantyPills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
-        currentSifirWarranty = pill.getAttribute('data-warranty') || pill.textContent.trim();
+        currentWarrantyVal = pill.getAttribute('data-warranty') || pill.textContent.trim();
         updateSifirWhatsAppUrl();
       });
     });
   }
 
+  // Bind Trade-in Checkbox
   if (chkSifirTradeIn) {
     chkSifirTradeIn.addEventListener('change', () => {
       if (inputSifirOldModel) {
@@ -967,8 +1293,8 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
     });
   }
 
-  // İlk yüklemede WhatsApp butonunu hazırla
-  updateSifirWhatsAppUrl();
+  // Initialize Configurator with iPhone 18 Serisi
+  renderSeries('18');
 
 });
 

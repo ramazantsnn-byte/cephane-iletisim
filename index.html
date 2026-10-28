@@ -169,7 +169,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link rel="stylesheet" href="style.css?v=17.0_apple_all_series_official">
+  <link rel="stylesheet" href="style.css?v=18.0_apple_all_series_configurator">
 </head>
 <body>
 
@@ -1246,68 +1246,75 @@
         </div>
       </div>
 
-      <!-- SPOTLIGHT: iPHONE 18 PRO & 18 PRO MAX KUTU AÇILIŞ KARTI -->
+      <!-- SPOTLIGHT: APPLE FLAGSHIP DİNAMİK MODEL & RENK YAPILANDIRICI -->
       <div class="sifir-spotlight-card">
         <div class="spotlight-visual">
-          <div class="spotlight-badge"><i class="fa-solid fa-sparkles text-gold"></i> Apple Flagship • Orijinal Seri</div>
+          <div class="spotlight-badge" id="spotlightBadge"><i class="fa-solid fa-sparkles text-gold"></i> Apple Flagship • Gelecek Nesil Pro</div>
           <div class="spotlight-media-container">
-            <img src="assets/iphone_flagship_spotlight.png" alt="Apple iPhone 18 Pro Max Titanyum Kapalı Kutu Sıfır" class="spotlight-img" id="spotlightMainImg" loading="lazy" decoding="async">
+            <img src="assets/models/iphone18_pro_max_desert.png" alt="Apple iPhone 18 Pro Max Titanyum Kapalı Kutu Sıfır" class="spotlight-img" id="spotlightMainImg" loading="lazy" decoding="async">
             <div class="video-overlay-badge"><i class="fa-solid fa-shield-check text-cyan"></i> 2 Yıl Apple TR Garantili</div>
           </div>
-          <div class="spotlight-watermark">KAPALI KUTU • JELATİNLİ</div>
+          <div class="spotlight-watermark" id="spotlightWatermark">KAPALI KUTU • 2 YIL APPLE TR</div>
         </div>
 
         <div class="spotlight-content">
           <div class="spotlight-brand-row">
-            <span class="spotlight-tag"><i class="fa-brands fa-apple"></i> Apple Flagship</span>
+            <span class="spotlight-tag" id="spotlightTag"><i class="fa-brands fa-apple"></i> Apple Flagship 2026/2027</span>
             <span class="spotlight-stock"><span class="live-dot-green"></span> Esenyurt Şubemizde Hazır Stok</span>
           </div>
 
-          <h3 class="spotlight-title">iPhone 18 Pro & 18 Pro Max</h3>
-          <p class="spotlight-desc">
-            Sıvı titanyum gövde, Kamera Denetimi, A20 Pro Bionic çip ve Apple Intelligence. Fabrika çıkışlı sıfır kapalı kutu, faturalı ve 2 Yıl Apple Türkiye garantili.
+          <h3 class="spotlight-title" id="spotlightTitle">iPhone 18 Pro Max</h3>
+          <p class="spotlight-desc" id="spotlightDesc">
+            6.9 inç sıvı titanyum gövde, Kamera Denetimi, 2nm A20 Pro Bionic çip, 48MP üçlü periskop lens ve Apple Intelligence. Fabrika çıkışlı sıfır kapalı kutu, faturalı ve 2 Yıl Apple Türkiye garantili.
           </p>
 
-          <!-- Yapılandırıcı: Model Seçimi -->
+          <!-- 1. Seri Seçimi (Her Seri İçin Ayrı Ayrı) -->
+          <div class="config-row">
+            <label class="config-label"><i class="fa-solid fa-layer-group text-gold"></i> Apple Serisi Seçin:</label>
+            <div class="config-pills series-pills" id="sifirSeriesPills">
+              <button type="button" class="cfg-pill active" data-series="18">iPhone 18 Serisi</button>
+              <button type="button" class="cfg-pill" data-series="17">iPhone 17 Serisi</button>
+              <button type="button" class="cfg-pill" data-series="16">iPhone 16 Serisi</button>
+              <button type="button" class="cfg-pill" data-series="15">iPhone 15 Serisi</button>
+              <button type="button" class="cfg-pill" data-series="14">iPhone 14 Serisi</button>
+              <button type="button" class="cfg-pill" data-series="13">iPhone 13 Serisi</button>
+            </div>
+          </div>
+
+          <!-- 2. Model Seçimi (Seriye göre dinamik dolar) -->
           <div class="config-row">
             <label class="config-label"><i class="fa-solid fa-mobile text-cyan"></i> Model Tercihi:</label>
             <div class="config-pills" id="sifirModelPills">
-              <button type="button" class="cfg-pill active" data-model="iPhone 18 Pro Max (6.9&quot;)">iPhone 18 Pro Max (6.9")</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 18 Pro (6.3&quot;)">iPhone 18 Pro (6.3")</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 18 (6.1&quot;)">iPhone 18 (6.1")</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 17 Pro Max">iPhone 17 Pro Max</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 17 Pro">iPhone 17 Pro</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 17 Air / Slim">iPhone 17 Air / Slim</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 17">iPhone 17</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 16 Pro Max">iPhone 16 Pro Max</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 16 Pro">iPhone 16 Pro</button>
-              <button type="button" class="cfg-pill" data-model="iPhone 16">iPhone 16</button>
+              <button type="button" class="cfg-pill active" data-model="iPhone 18 Pro Max">iPhone 18 Pro Max</button>
+              <button type="button" class="cfg-pill" data-model="iPhone 18 Pro">iPhone 18 Pro</button>
+              <button type="button" class="cfg-pill" data-model="iPhone 18">iPhone 18</button>
             </div>
           </div>
 
-          <!-- Yapılandırıcı: Kapasite -->
+          <!-- 3. Kapasite (Modele göre dinamik dolar) -->
           <div class="config-row">
             <label class="config-label"><i class="fa-solid fa-hard-drive text-cyan"></i> Kapasite:</label>
             <div class="config-pills" id="sifirCapacityPills">
-              <button type="button" class="cfg-pill active" data-cap="128 GB">128 GB</button>
-              <button type="button" class="cfg-pill" data-cap="256 GB">256 GB</button>
+              <button type="button" class="cfg-pill active" data-cap="256 GB">256 GB</button>
               <button type="button" class="cfg-pill" data-cap="512 GB">512 GB</button>
               <button type="button" class="cfg-pill" data-cap="1 TB">1 TB</button>
+              <button type="button" class="cfg-pill" data-cap="2 TB">2 TB</button>
             </div>
           </div>
 
-          <!-- Yapılandırıcı: Renk Seçimi -->
+          <!-- 4. Renk Seçimi (Modele göre dinamik renkler ve swatch'lar) -->
           <div class="config-row">
             <label class="config-label"><i class="fa-solid fa-palette text-cyan"></i> Renk: <span id="sifirColorName" class="text-gold">Çöl Titanyum (Desert)</span></label>
             <div class="color-swatches" id="sifirColorSwatches">
-              <button type="button" class="color-swatch active" data-color="Çöl Titanyum (Desert)" style="--swatch-color: #c5a582;" title="Çöl Titanyum"></button>
-              <button type="button" class="color-swatch" data-color="Natürel Titanyum (Natural)" style="--swatch-color: #9a9893;" title="Natürel Titanyum"></button>
-              <button type="button" class="color-swatch" data-color="Beyaz Titanyum (White)" style="--swatch-color: #f2f1ed;" title="Beyaz Titanyum"></button>
-              <button type="button" class="color-swatch" data-color="Siyah Titanyum (Black)" style="--swatch-color: #3b3a39;" title="Siyah Titanyum"></button>
+              <button type="button" class="color-swatch active" data-color="Çöl Titanyum (Desert)" style="--swatch-color: #c5a582;" title="Çöl Titanyum (Desert)"></button>
+              <button type="button" class="color-swatch" data-color="Natürel Titanyum (Natural)" style="--swatch-color: #9a9893;" title="Natürel Titanyum (Natural)"></button>
+              <button type="button" class="color-swatch" data-color="Beyaz Titanyum (White)" style="--swatch-color: #f2f1ed;" title="Beyaz Titanyum (White)"></button>
+              <button type="button" class="color-swatch" data-color="Siyah Titanyum (Black)" style="--swatch-color: #3b3a39;" title="Siyah Titanyum (Black)"></button>
+              <button type="button" class="color-swatch" data-color="Bordo Titanyum (Burgundy)" style="--swatch-color: #582e35;" title="Bordo Titanyum (Burgundy)"></button>
             </div>
           </div>
 
-          <!-- Garanti Seçeneği -->
+          <!-- 5. Garanti Seçeneği -->
           <div class="config-row">
             <label class="config-label"><i class="fa-solid fa-shield-halved text-cyan"></i> Garanti Türü:</label>
             <div class="config-pills" id="sifirWarrantyPills">
@@ -1352,7 +1359,7 @@
           <div class="apple-spec-card highlight">
             <span class="apple-spec-badge"><i class="fa-solid fa-crown text-gold"></i> En Yeni Zirve Flagship</span>
             <div class="spec-img-box">
-              <img src="assets/iphone18pro_desert.png" alt="Apple iPhone 18 Pro Max Sıvı Titanyum Flagship" class="spec-img" loading="lazy" decoding="async">
+              <img src="assets/models/iphone18_pro_max_desert.png" alt="Apple iPhone 18 Pro Max Sıvı Titanyum Flagship" class="spec-img" loading="lazy" decoding="async">
             </div>
             <h4 class="apple-spec-title">iPhone 18 Pro / Max</h4>
             <p class="apple-spec-tagline">Apple Intelligence ve A20 Pro Bionic ile geleceğin titanyum gücü.</p>
@@ -1372,7 +1379,7 @@
           <div class="apple-spec-card">
             <span class="apple-spec-badge">Titanyum Pro Performans</span>
             <div class="spec-img-box">
-              <img src="assets/iphone18pro_natural.png" alt="Apple iPhone 17 Pro Max Doğal Titanyum" class="spec-img" loading="lazy" decoding="async">
+              <img src="assets/models/iphone17_pro_max_burgundy.png" alt="Apple iPhone 17 Pro Max Doğal Titanyum" class="spec-img" loading="lazy" decoding="async">
             </div>
             <h4 class="apple-spec-title">iPhone 17 Pro / Max</h4>
             <p class="apple-spec-tagline">A19 Pro çip, 48 MP üçlü kamera ve ultra ince çerçeveler.</p>
@@ -1392,7 +1399,7 @@
           <div class="apple-spec-card">
             <span class="apple-spec-badge">Ultra İnce & Hafif Tasarım</span>
             <div class="spec-img-box">
-              <img src="assets/iphone16_ultramarine.jpg" alt="Apple iPhone 17 Air Ultra İnce Profil" class="spec-img" loading="lazy" decoding="async">
+              <img src="assets/models/iphone17_air_sky_blue.png" alt="Apple iPhone 17 Air Ultra İnce Profil" class="spec-img" loading="lazy" decoding="async">
             </div>
             <h4 class="apple-spec-title">iPhone 17 & Air</h4>
             <p class="apple-spec-tagline">Zarif alüminyum profil, Dinamik Ada ve yüksek taşınabilirlik.</p>
@@ -1412,7 +1419,7 @@
           <div class="apple-spec-card">
             <span class="apple-spec-badge">Fiyat / Değer Tercihi</span>
             <div class="spec-img-box">
-              <img src="assets/iphone16pro.jpg" alt="Apple iPhone 16 Pro Çöl Titanyumu" class="spec-img" loading="lazy" decoding="async">
+              <img src="assets/models/iphone16_pro_max_desert.png" alt="Apple iPhone 16 Pro Çöl Titanyumu" class="spec-img" loading="lazy" decoding="async">
             </div>
             <h4 class="apple-spec-title">iPhone 16 / Pro</h4>
             <p class="apple-spec-tagline">Kamera Denetimi, A18 mimarisi ve kanıtlanmış sağlamlık.</p>
@@ -1448,7 +1455,7 @@
         <div class="product-card">
           <div class="product-badge">Sıfır Kutu</div>
           <div class="product-img-box">
-            <img src="assets/iphone16pro.jpg" alt="Apple iPhone 16 Pro Max Desert Titanium" class="product-real-img" loading="lazy" decoding="async">
+            <img src="assets/models/iphone16_pro_max_desert.png" alt="Apple iPhone 16 Pro Max Desert Titanium" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>iPhone 16 Pro Max 256GB</h3>
           <p class="product-specs">Çöl Titanyumu • 2 Yıl Apple TR Garantili • Sıfır Kapalı Kutu</p>
@@ -1462,7 +1469,7 @@
         <div class="product-card">
           <div class="product-badge">Trend Renk</div>
           <div class="product-img-box">
-            <img src="assets/iphone16_ultramarine.jpg" alt="Apple iPhone 16 Ultramarine Mavi" class="product-real-img" loading="lazy" decoding="async">
+            <img src="assets/models/iphone17_air_sky_blue.png" alt="Apple iPhone 16 Ultramarine Mavi" class="product-real-img" loading="lazy" decoding="async">
           </div>
           <h3>iPhone 16 128GB</h3>
           <p class="product-specs">Ultramarin Mavi • Kamera Denetimi • 2 Yıl Apple TR</p>
@@ -1645,6 +1652,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=17.0_apple_all_series_official"></script>
+  <script src="app.js?v=18.0_apple_all_series_configurator"></script>
 </body>
 </html>
