@@ -88,19 +88,83 @@ document.addEventListener('DOMContentLoaded', () => {
   // -----------------------------------------------------------
 
   // -----------------------------------------------------------
-  // MOBİL DRAWER MENÜ
+  // FPPRO-STYLE LUXURY YAN MENÜ (OFF-CANVAS DRAWER) VE ACCORDION
   // -----------------------------------------------------------
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const sideDrawer = document.getElementById('sideDrawer');
+  const drawerOverlay = document.getElementById('drawerOverlay');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const drawerLinks = document.querySelectorAll('.cp-drawer-link');
+  const groupHeaders = document.querySelectorAll('.cp-group-header');
+  const drawerSearchInput = document.getElementById('drawerSearchInput');
 
-  if (mobileMenuBtn && mobileDrawer) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('active');
+  function openDrawer() {
+    if (sideDrawer && drawerOverlay) {
+      sideDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.classList.add('cp-drawer-open');
+    }
+  }
+
+  function closeDrawer() {
+    if (sideDrawer && drawerOverlay) {
+      sideDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.classList.remove('cp-drawer-open');
+    }
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openDrawer();
     });
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('active');
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', closeDrawer);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sideDrawer && sideDrawer.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // Akordiyon Menü Grupları
+  groupHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const parentGroup = header.closest('.cp-menu-group');
+      if (parentGroup) {
+        parentGroup.classList.toggle('open');
+      }
+    });
+  });
+
+  // Drawer Canlı Arama Filtresi
+  if (drawerSearchInput) {
+    drawerSearchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const allLinks = document.querySelectorAll('.cp-drawer-link');
+      allLinks.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (!query || text.includes(query)) {
+          item.style.display = 'flex';
+          const parentGroup = item.closest('.cp-menu-group');
+          if (parentGroup && query) parentGroup.classList.add('open');
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
   }

@@ -169,7 +169,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link rel="stylesheet" href="style.css?v=20261105_badge_compact_v13">
+  <link rel="stylesheet" href="style.css?v=20261105_fppro_drawer_v14">
 </head>
 <body>
 
@@ -203,28 +203,112 @@
         </a>
       </div>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
-        <i class="fa-solid fa-bars"></i>
+      <button class="mobile-menu-btn cp-menu-trigger" id="mobileMenuBtn" aria-label="Menü">
+        <i class="fa-solid fa-bars-staggered"></i>
       </button>
     </nav>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <a href="#telefon-al" class="mobile-nav-link"><i class="fa-solid fa-cart-shopping text-cyan"></i> Telefon Satın Al</a>
-    <a href="#tamir-randevu" class="mobile-nav-link"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Hızlı Teknik Servis</a>
-    <a href="#degerleme" class="mobile-nav-link"><i class="fa-solid fa-hand-holding-dollar text-cyan"></i> Telefonunu Sat (15 Dk Nakit)</a>
-    <a href="#sorun-cozum" class="mobile-nav-link"><i class="fa-solid fa-circle-question text-cyan"></i> Sorun & Çözüm Rehberi</a>
-    <a href="#google-yorumlar" class="mobile-nav-link"><i class="fa-brands fa-google text-gold"></i> Google Yorumları (5.0 ★)</a>
-    <a href="#vitrin" class="mobile-nav-link"><i class="fa-solid fa-mobile-screen"></i> Cihaz Vitrini & Mağaza</a>
-    <a href="#magaza" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Mağazamız & Konum</a>
-    <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20fiyat%20öğrenmek%20istiyorum." target="_blank" class="btn btn-whatsapp-giant" style="margin-top: 14px;">
-      <i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Fiyat Al
-    </a>
-    <a href="tel:05303543465" class="btn btn-outline w-full" style="margin-top: 8px;">
-      <i class="fa-solid fa-phone"></i> Hemen Ara: 0530 354 34 65
-    </a>
-  </div>
+  <!-- ========================================================= -->
+  <!-- FPPRO-STYLE LUXURY OFF-CANVAS YAN MENÜ (SIDE DRAWER)      -->
+  <!-- ========================================================= -->
+  <div class="cp-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="cp-side-drawer" id="sideDrawer" aria-label="CepHane Gezinti Menüsü">
+    <div class="cp-drawer-header">
+      <a href="/" class="cp-drawer-brand">
+        <img src="assets/logo.png?v=20261105_centered_logo" alt="CepHane Logo" class="cp-drawer-logo">
+        <div class="cp-drawer-brand-text">
+          <strong>CepHane İletişim</strong>
+          <small>Apple & Android Teknoloji Merkezi</small>
+        </div>
+      </a>
+      <button class="cp-drawer-close" id="drawerCloseBtn" aria-label="Menüyü Kapat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Hızlı Arama & Filtre Kutusu -->
+    <div class="cp-drawer-search">
+      <div class="cp-search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="drawerSearchInput" placeholder="Model veya hizmet ara (örn. iPhone 13, Ekran, Pil...)" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Menü Grupları (Akordiyon / Kategorize) -->
+    <div class="cp-drawer-body">
+      <!-- Grup 1: Hızlı Tamir & Onarım -->
+      <div class="cp-menu-group open">
+        <div class="cp-group-header">
+          <span><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Göz Önünde Hızlı Tamir</span>
+          <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
+        </div>
+        <div class="cp-group-items">
+          <a href="#tamir-randevu" class="cp-drawer-link"><i class="fa-solid fa-mobile-screen"></i> Orijinal Ekran Değişimi <span>Göz Önünde</span></a>
+          <a href="#tamir-randevu" class="cp-drawer-link"><i class="fa-solid fa-battery-full text-emerald"></i> Pil & Batarya Sağlığı <span>6 Ay Garanti</span></a>
+          <a href="#tamir-randevu" class="cp-drawer-link"><i class="fa-solid fa-bolt text-gold"></i> Lazerle Arka Cam Yenileme <span>Kasa Açmadan</span></a>
+          <a href="#tamir-randevu" class="cp-drawer-link"><i class="fa-solid fa-microchip text-cyan"></i> Bionic Anakart Onarımı <span>Mikroskop Altında</span></a>
+        </div>
+      </div>
+
+      <!-- Grup 2: Telefonunu Nakite Sat -->
+      <div class="cp-menu-group open">
+        <div class="cp-group-header">
+          <span><i class="fa-solid fa-hand-holding-dollar text-emerald"></i> Telefonunu Nakite Sat</span>
+          <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
+        </div>
+        <div class="cp-group-items">
+          <a href="#degerleme" class="cp-drawer-link"><i class="fa-solid fa-calculator text-emerald"></i> 15 Dakikada Anında Değerleme <span>En Yüksek Fiyat</span></a>
+          <a href="#degerleme" class="cp-drawer-link"><i class="fa-solid fa-money-bill-transfer"></i> Banka FAST / Elden Nakit <span>Güvenli</span></a>
+          <a href="#degerleme" class="cp-drawer-link"><i class="fa-solid fa-arrows-rotate text-cyan"></i> Takas ile Model Yükseltme <span>Avantajlı</span></a>
+        </div>
+      </div>
+
+      <!-- Grup 3: Sıfır & 2. El Cihaz Alımı -->
+      <div class="cp-menu-group open">
+        <div class="cp-group-header">
+          <span><i class="fa-solid fa-cart-shopping text-gold"></i> Cihaz Satın Al</span>
+          <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
+        </div>
+        <div class="cp-group-items">
+          <a href="#telefon-al" class="cp-drawer-link"><i class="fa-solid fa-box text-cyan"></i> Sıfır Kapalı Kutu Modeller <span>2 Yıl TR Garantili</span></a>
+          <a href="#telefon-al" class="cp-drawer-link"><i class="fa-solid fa-shield-check text-emerald"></i> A+ Mağaza Garantili 2. El <span>Test Edilmiş</span></a>
+          <a href="karsilastir.html" class="cp-drawer-link highlight"><i class="fa-solid fa-code-compare text-cyan"></i> 3D Cihaz Karşılaştır <span>Canlı</span></a>
+        </div>
+      </div>
+
+      <!-- Grup 4: Müşteri Deneyimi & Mağaza -->
+      <div class="cp-menu-group">
+        <div class="cp-group-header">
+          <span><i class="fa-brands fa-google text-cyan"></i> Müşteri Güveni & Konum</span>
+          <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
+        </div>
+        <div class="cp-group-items">
+          <a href="#google-yorumlar" class="cp-drawer-link"><i class="fa-solid fa-star text-gold"></i> Google Haritalar Yorumları <span>4.8 ★ (53 Yorum)</span></a>
+          <a href="#sorun-cozum" class="cp-drawer-link"><i class="fa-solid fa-circle-question"></i> Sıkça Sorulan Sorular</a>
+          <a href="#magaza" class="cp-drawer-link"><i class="fa-solid fa-location-dot text-emerald"></i> Mağaza Konumu & Yol Tarifi <span>Pınar Mah.</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer / Çevrim İçi Canlı Destek -->
+    <div class="cp-drawer-footer">
+      <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20siteden%20yazıyorum%20destek%20almak%20istiyorum." target="_blank" rel="noopener" class="cp-drawer-support-box">
+        <div class="cp-support-dot-wrap">
+          <span class="cp-live-radar-dot"></span>
+        </div>
+        <div class="cp-support-info">
+          <strong>Çevrim İçi Canlı Destek</strong>
+          <small>Uzmanımız bankoda • 1 dakikada yanıt</small>
+        </div>
+        <i class="fa-brands fa-whatsapp cp-support-wa-icon"></i>
+      </a>
+
+      <a href="tel:05303543465" class="cp-drawer-call-btn">
+        <i class="fa-solid fa-phone"></i> 0530 354 34 65
+      </a>
+    </div>
+  </aside>
 
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
@@ -232,15 +316,17 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot"></span>
-          <span>Esenyurt Pınar Mah. Sivas Kongre Cad. No:54/A</span>
+          <span class="hero-badge-tag"><i class="fa-solid fa-shield-check text-cyan"></i> Şeffaf Banko</span>
+          <span class="hero-badge-dot-sep">•</span>
+          <span>Apple & Android Flagship Teknoloji Merkezi</span>
         </div>
         
         <h1 class="hero-title">
-          Telefonunu <span class="gradient-text">Değerinde Sat</span> veya <span class="text-cyan">Gözünün Önünde Hızlı Tamir</span> Ettir.
+          Telefonunu <span class="gradient-text">Değerinde Nakite Sat</span> veya <span class="text-cyan">Gözünün Önünde Hızlı Tamir</span> Ettir.
         </h1>
         
         <p class="hero-desc">
-          Verileriniz silinmeden, şifre vermenize gerek kalmadan <strong>bankoda çayınızı yudumlarken 20-gözünüzün önünde hızlı tamir</strong>. Ya da eski telefonunuza 15 dakikada en yüksek nakit piyasa teklifini anında elden alın.
+          Cihazınız arka odaya gitmeden, şifre vermenize ve veri kaybı endişesine gerek kalmadan <strong>bankoda çayınızı yudumlarken gözünüzün önünde şeffaf onarım</strong>. Ya da eski telefonunuza 15 dakikada en yüksek piyasa değeriyle anında elden nakit ödeme.
         </p>
 
         <!-- İkili Seçici Butonlar -->
@@ -1778,8 +1864,28 @@
     </div>
   </div>
 
+  <!-- ========================================================= -->
+  <!-- FPPRO-STYLE PERSISTENT FLOATING ÇEVRİM İÇİ DESTEK KUTUSU  -->
+  <!-- ========================================================= -->
+  <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20siteden%20yazıyorum%20destek%20almak%20istiyorum." target="_blank" rel="noopener" class="cp-floating-support" id="floatingSupport" aria-label="Çevrim İçi Canlı Destek">
+    <div class="cfs-avatar-wrap">
+      <span class="cfs-radar-dot"></span>
+      <img src="assets/logo.png?v=20261105_centered_logo" alt="Uzman" class="cfs-avatar">
+    </div>
+    <div class="cfs-content">
+      <div class="cfs-status">
+        <span class="cfs-status-dot"></span>
+        <span>Çevrim İçi Destek</span>
+      </div>
+      <strong class="cfs-title">Teknik Uzmana Sorun</strong>
+    </div>
+    <div class="cfs-icon">
+      <i class="fa-brands fa-whatsapp"></i>
+    </div>
+  </a>
+
   <!-- Mobile Floating Sticky Bar -->
-    <!-- Mobile Sticky Quick Actions (Ekranın Altına Sabit 4 Buton) -->
+  <!-- Mobile Sticky Quick Actions (Ekranın Altına Sabit 4 Buton) -->
   <div class="mobile-sticky-bar">
     <a href="#tamir-randevu" class="sticky-btn sticky-repair">
       <i class="fa-solid fa-screwdriver-wrench"></i>
@@ -1799,6 +1905,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=20261105_mobile_frosted_v3"></script>
+  <script src="app.js?v=20261105_fppro_drawer_v14"></script>
 </body>
 </html>
