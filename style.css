@@ -4400,11 +4400,10 @@ img, video {
   gap: 20px;
 }
 .gr-video-mockup {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: transparent;
 }
 .gr-video-header {
   display: flex;
