@@ -1296,6 +1296,69 @@ Bu onarım için dükkanınıza gelip gözümün önünde yaptırmak istiyorum. 
   // Initialize Configurator with iPhone 18 Serisi
   renderSeries('18');
 
+
+  // =========================================================
+  // TELEFON AL / CİHAZ SATIN AL MOTORU
+  // =========================================================
+  const buyBrandSelect = document.getElementById('buyBrandSelect');
+  const buyModelSelect = document.getElementById('buyModelSelect');
+  const buyConditionSelect = document.getElementById('buyConditionSelect');
+  const buyStorageSelect = document.getElementById('buyStorageSelect');
+  const btnBuyWhatsApp = document.getElementById('btnBuyWhatsApp');
+
+  const BUY_MODELS_DB = {
+    'Apple': [
+      'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16',
+      'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+      'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14',
+      'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13',
+      'iPhone 12 Pro Max', 'iPhone 12 Pro', 'iPhone 12',
+      'iPhone 11 Pro Max', 'iPhone 11', 'iPhone X / XR / XS'
+    ],
+    'Samsung': [
+      'Galaxy S24 Ultra', 'Galaxy S24+ / S24',
+      'Galaxy S23 Ultra', 'Galaxy S23+ / S23',
+      'Galaxy S22 Ultra', 'Galaxy S21 FE',
+      'Galaxy A55 5G', 'Galaxy A54 5G', 'Galaxy A35 5G', 'Galaxy A34 5G',
+      'Galaxy A25 5G', 'Galaxy A15', 'Galaxy A14',
+      'Galaxy Z Fold6 / Z Flip6'
+    ],
+    'Xiaomi': [
+      'Xiaomi 14 Ultra', 'Xiaomi 14', 'Xiaomi 13T Pro', 'Xiaomi 13T',
+      'Redmi Note 13 Pro+', 'Redmi Note 13 Pro', 'Redmi Note 13',
+      'Redmi Note 12 Pro 5G', 'Redmi Note 12',
+      'Redmi Note 11 Pro', 'Redmi Note 10 Pro',
+      'Poco X6 Pro', 'Poco F6 Pro'
+    ]
+  };
+
+  function updateBuyModels() {
+    if (!buyBrandSelect || !buyModelSelect) return;
+    const brand = buyBrandSelect.value;
+    const models = BUY_MODELS_DB[brand] || BUY_MODELS_DB['Apple'];
+    buyModelSelect.innerHTML = models.map(function(m) { return '<option value="' + m + '">' + m + '</option>'; }).join('');
+    updateBuyWhatsAppLink();
+  }
+
+  function updateBuyWhatsAppLink() {
+    if (!btnBuyWhatsApp || !buyBrandSelect || !buyModelSelect) return;
+    const brand = buyBrandSelect.value;
+    const model = buyModelSelect.value;
+    const condition = buyConditionSelect ? buyConditionSelect.value : 'Sıfır Kapalı Kutu';
+    const storage = buyStorageSelect ? buyStorageSelect.value : '256 GB';
+
+    const msg = 'Merhaba CepHane İletişim, ' + brand + ' ' + model + ' (' + storage + ' - ' + condition + ') satın almak istiyorum. Güncel fiyatı ve mağazadaki stok durumu nedir?';
+    btnBuyWhatsApp.href = 'https://wa.me/905303543465?text=' + encodeURIComponent(msg);
+  }
+
+  if (buyBrandSelect) {
+    buyBrandSelect.addEventListener('change', updateBuyModels);
+    if (buyModelSelect) buyModelSelect.addEventListener('change', updateBuyWhatsAppLink);
+    if (buyConditionSelect) buyConditionSelect.addEventListener('change', updateBuyWhatsAppLink);
+    if (buyStorageSelect) buyStorageSelect.addEventListener('change', updateBuyWhatsAppLink);
+    updateBuyModels();
+  }
+
 });
 
 
