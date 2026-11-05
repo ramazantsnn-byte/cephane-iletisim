@@ -4380,3 +4380,316 @@ img, video {
     margin-top: 28px;
   }
 }
+
+
+/* ==========================================================================
+   GOOGLE HARİTALAR 5.0 DOĞRULANMIŞ YORUMLAR & VİDEO SHOWCASE
+   ========================================================================== */
+.google-reviews-showcase {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-top: 36px;
+}
+
+/* Sol Sütun: Video & Skor */
+.gr-video-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gr-video-mockup {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+.gr-video-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.gr-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.gr-dot.red { background: #ef4444; }
+.gr-dot.yellow { background: #f59e0b; }
+.gr-dot.green { background: #10b981; }
+.gr-url {
+  font-size: 11.5px;
+  color: #64748b;
+  font-family: monospace;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.gr-video-wrapper {
+  position: relative;
+  background: #000000;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.gr-phone-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gr-video-floating-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.gr-video-floating-badge i {
+  font-size: 20px;
+}
+.gr-video-floating-badge strong {
+  display: block;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 700;
+}
+.gr-video-floating-badge small {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Skor Özeti Kartı */
+.gr-summary-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+.gr-rating-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.gr-big-score {
+  font-size: 46px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  font-family: var(--font-heading);
+}
+.gr-score-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gr-stars {
+  display: flex;
+  gap: 3px;
+  color: #f59e0b;
+  font-size: 16px;
+}
+.gr-score-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+.gr-verified-pill {
+  font-size: 11.5px;
+  color: #16a34a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.gr-summary-note {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.gr-btn-maps {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+}
+
+/* Sağ Sütun: Yorum Kartları */
+.gr-cards-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.gr-review-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gr-review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.gr-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+.gr-user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.gr-user-info {
+  flex-grow: 1;
+}
+.gr-user-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.gr-badge-guide {
+  font-size: 11px;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.gr-badge-verified {
+  font-size: 11px;
+  color: #059669;
+  background: #d1fae5;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.gr-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.gr-card-stars {
+  color: #f59e0b;
+  font-size: 12px;
+  display: inline-flex;
+  gap: 2px;
+}
+.gr-time {
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+.gr-service-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 1px 7px;
+  border-radius: 6px;
+}
+.gr-g-logo {
+  font-size: 18px;
+  color: #ea4335;
+  flex-shrink: 0;
+}
+.gr-card-text {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+  flex-grow: 1;
+}
+.gr-proof-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: auto;
+}
+.gr-proof-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #cbd5e1;
+}
+.gr-proof-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.gr-proof-desc strong {
+  font-size: 12.5px;
+  color: #0f172a;
+}
+.gr-proof-desc small {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 1024px) {
+  .google-reviews-showcase {
+    grid-template-columns: 1fr;
+  }
+  .gr-video-column {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .gr-cards-column {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .gr-review-card {
+    padding: 18px 16px;
+  }
+}
