@@ -4704,18 +4704,20 @@ img, video {
   gap: 24px;
 }
 
+.gsv-visual-container,
 .gsv-video-container {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.28);
-  background: #000;
+  background: #060913;
   position: relative;
-  aspect-ratio: 16 / 9;
 }
 
+.gsv-showcase-img,
 .gsv-video-player {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 580px;
   object-fit: cover;
   display: block;
 }
