@@ -169,7 +169,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link rel="stylesheet" href="style.css?v=20261105_fppro_drawer_v14">
+  <link rel="stylesheet" href="style.css?v=20261105_smartnav_v15">
 </head>
 <body>
 
@@ -235,12 +235,12 @@
       </div>
     </div>
 
-    <!-- Menü Grupları (Akordiyon / Kategorize) -->
+    <!-- Menü Grupları (Akordiyon / Kategorize - Varsayılan Kapalı) -->
     <div class="cp-drawer-body">
-      <!-- Grup 1: Hızlı Tamir & Onarım -->
-      <div class="cp-menu-group open">
+      <!-- Grup 1: Hızlı Tamir -->
+      <div class="cp-menu-group">
         <div class="cp-group-header">
-          <span><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Göz Önünde Hızlı Tamir</span>
+          <span><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Hızlı Tamir</span>
           <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
         </div>
         <div class="cp-group-items">
@@ -251,10 +251,10 @@
         </div>
       </div>
 
-      <!-- Grup 2: Telefonunu Nakite Sat -->
-      <div class="cp-menu-group open">
+      <!-- Grup 2: Telefonunu Sat -->
+      <div class="cp-menu-group">
         <div class="cp-group-header">
-          <span><i class="fa-solid fa-hand-holding-dollar text-emerald"></i> Telefonunu Nakite Sat</span>
+          <span><i class="fa-solid fa-hand-holding-dollar text-emerald"></i> Telefonunu Sat</span>
           <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
         </div>
         <div class="cp-group-items">
@@ -265,7 +265,7 @@
       </div>
 
       <!-- Grup 3: Sıfır & 2. El Cihaz Alımı -->
-      <div class="cp-menu-group open">
+      <div class="cp-menu-group">
         <div class="cp-group-header">
           <span><i class="fa-solid fa-cart-shopping text-gold"></i> Cihaz Satın Al</span>
           <i class="fa-solid fa-chevron-down cp-group-arrow"></i>
@@ -291,21 +291,13 @@
       </div>
     </div>
 
-    <!-- Drawer Footer / Çevrim İçi Canlı Destek -->
+    <!-- Drawer Footer -->
     <div class="cp-drawer-footer">
-      <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20siteden%20yazıyorum%20destek%20almak%20istiyorum." target="_blank" rel="noopener" class="cp-drawer-support-box">
-        <div class="cp-support-dot-wrap">
-          <span class="cp-live-radar-dot"></span>
-        </div>
-        <div class="cp-support-info">
-          <strong>Çevrim İçi Canlı Destek</strong>
-          <small>Uzmanımız bankoda • 1 dakikada yanıt</small>
-        </div>
-        <i class="fa-brands fa-whatsapp cp-support-wa-icon"></i>
+      <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-whatsapp-giant" style="border-radius: 12px; font-size: 14px; padding: 12px 16px;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Fiyat & Bilgi Al
       </a>
-
       <a href="tel:05303543465" class="cp-drawer-call-btn">
-        <i class="fa-solid fa-phone"></i> 0530 354 34 65
+        <i class="fa-solid fa-phone"></i> Hemen Ara: 0530 354 34 65
       </a>
     </div>
   </aside>
@@ -316,8 +308,8 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot"></span>
-          <span class="hero-badge-tag"><i class="fa-solid fa-shield-check text-cyan"></i> Şeffaf Banko</span>
-          <span class="hero-badge-dot-sep">•</span>
+          <span>Apple & Android Flagship Teknoloji Merkezi</span>
+        </div>
           <span>Apple & Android Flagship Teknoloji Merkezi</span>
         </div>
         
@@ -1864,26 +1856,6 @@
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- FPPRO-STYLE PERSISTENT FLOATING ÇEVRİM İÇİ DESTEK KUTUSU  -->
-  <!-- ========================================================= -->
-  <a href="https://wa.me/905303543465?text=Merhaba%20CepHane%20İletişim,%20siteden%20yazıyorum%20destek%20almak%20istiyorum." target="_blank" rel="noopener" class="cp-floating-support" id="floatingSupport" aria-label="Çevrim İçi Canlı Destek">
-    <div class="cfs-avatar-wrap">
-      <span class="cfs-radar-dot"></span>
-      <img src="assets/logo.png?v=20261105_centered_logo" alt="Uzman" class="cfs-avatar">
-    </div>
-    <div class="cfs-content">
-      <div class="cfs-status">
-        <span class="cfs-status-dot"></span>
-        <span>Çevrim İçi Destek</span>
-      </div>
-      <strong class="cfs-title">Teknik Uzmana Sorun</strong>
-    </div>
-    <div class="cfs-icon">
-      <i class="fa-brands fa-whatsapp"></i>
-    </div>
-  </a>
-
   <!-- Mobile Floating Sticky Bar -->
   <!-- Mobile Sticky Quick Actions (Ekranın Altına Sabit 4 Buton) -->
   <div class="mobile-sticky-bar">
@@ -1905,6 +1877,6 @@
     </a>
   </div>
 
-  <script src="app.js?v=20261105_fppro_drawer_v14"></script>
+  <script src="app.js?v=20261105_smartnav_v15"></script>
 </body>
 </html>

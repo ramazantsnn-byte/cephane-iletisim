@@ -170,6 +170,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -----------------------------------------------------------
+  // SMART NAVBAR (AŞAĞI KAYDIRINCA GİZLE, YUKARI ÇIKINCA GÖSTER)
+  // -----------------------------------------------------------
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  let lastScrollY = window.scrollY;
+  let scrollTicking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        // Yan çekmece menü açıksa navbar'ı gizleme
+        if (sideDrawer && sideDrawer.classList.contains('active')) {
+          if (navbarWrapper) navbarWrapper.classList.remove('nav-hidden');
+          lastScrollY = currentScrollY;
+          scrollTicking = false;
+          return;
+        }
+
+        if (navbarWrapper) {
+          if (currentScrollY <= 15) {
+            navbarWrapper.classList.remove('nav-hidden');
+          } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            // Aşağıya kaydırırken gizle
+            navbarWrapper.classList.add('nav-hidden');
+          } else if (currentScrollY < lastScrollY) {
+            // Yukarıya kaydırırken anında geri göster
+            navbarWrapper.classList.remove('nav-hidden');
+          }
+        }
+
+        lastScrollY = currentScrollY;
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // -----------------------------------------------------------
   // TEYİT VE ONAY MODALI (WHATSAPP DİREKT AÇICI)
   // -----------------------------------------------------------
   const confirmModal = document.getElementById('confirmModal');

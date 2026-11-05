@@ -282,10 +282,14 @@ body {
   top: 0;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.navbar-wrapper.nav-hidden {
+  transform: translateY(-100%);
 }
 .navbar {
   display: flex;
