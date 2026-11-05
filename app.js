@@ -170,41 +170,64 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -----------------------------------------------------------
-  // SMART NAVBAR (AŞAĞI KAYDIRINCA GİZLE, YUKARI ÇIKINCA GÖSTER)
+  // SMART NAVBAR (AŞAĞI KAYDIRINCA GİZLE, YUKARI ÇIKINCA ANINDA GÖSTER)
   // -----------------------------------------------------------
   const navbarWrapper = document.querySelector('.navbar-wrapper');
-  let lastScrollY = window.scrollY;
-  let scrollTicking = false;
+  let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  let touchStartY = 0;
+
+  function showNavbar() {
+    if (navbarWrapper && navbarWrapper.classList.contains('nav-hidden')) {
+      navbarWrapper.classList.remove('nav-hidden');
+    }
+  }
+
+  function hideNavbar() {
+    if (navbarWrapper && !navbarWrapper.classList.contains('nav-hidden')) {
+      if (!sideDrawer || !sideDrawer.classList.contains('active')) {
+        navbarWrapper.classList.add('nav-hidden');
+      }
+    }
+  }
 
   window.addEventListener('scroll', () => {
-    if (!scrollTicking) {
-      window.requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Yan çekmece menü açıksa navbar'ı gizleme
-        if (sideDrawer && sideDrawer.classList.contains('active')) {
-          if (navbarWrapper) navbarWrapper.classList.remove('nav-hidden');
-          lastScrollY = currentScrollY;
-          scrollTicking = false;
-          return;
-        }
+    if (sideDrawer && sideDrawer.classList.contains('active')) {
+      showNavbar();
+      lastScrollY = currentScrollY;
+      return;
+    }
 
-        if (navbarWrapper) {
-          if (currentScrollY <= 15) {
-            navbarWrapper.classList.remove('nav-hidden');
-          } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
-            // Aşağıya kaydırırken gizle
-            navbarWrapper.classList.add('nav-hidden');
-          } else if (currentScrollY < lastScrollY) {
-            // Yukarıya kaydırırken anında geri göster
-            navbarWrapper.classList.remove('nav-hidden');
-          }
-        }
+    if (currentScrollY <= 20) {
+      showNavbar();
+    } else if (currentScrollY < lastScrollY) {
+      // Yukarı doğru en ufak harekette ANINDA göster
+      showNavbar();
+    } else if (currentScrollY > lastScrollY && currentScrollY > 70 && (currentScrollY - lastScrollY > 5)) {
+      // Aşağı doğru belirgin kaydırmada gizle
+      hideNavbar();
+    }
 
-        lastScrollY = currentScrollY;
-        scrollTicking = false;
-      });
-      scrollTicking = true;
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+  // Mobil Dokunmatik (Touch) Desteği - Parmağı aşağı çeker çekmez (sayfa yukarı) 0ms anında aç
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchY - touchStartY;
+      if (deltaY > 5) {
+        showNavbar();
+      } else if (deltaY < -15 && (window.pageYOffset || document.documentElement.scrollTop) > 70) {
+        hideNavbar();
+      }
     }
   }, { passive: true });
 
@@ -466,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Randevu Talebiniz CepHane Ekibine İletildi! 🛠️',
         summaryHtml,
         `Sayın <strong>${name}</strong>, <strong>${model}</strong> cihazınız için randevu talebiniz başarıyla oluşturuldu.<br><br>
-        <strong>15 dakika içerisinde</strong> teknik servis ekibimiz WhatsApp üzerinden randevu saatinizi teyit edecektir.`,
+        <strong>Anında</strong> teknik servis ekibimiz WhatsApp üzerinden randevu saatinizi teyit edecektir.`,
         waUrl
       );
     });
@@ -633,7 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: 'Bugün, 14:15',
       status: 'Onarım Bankoda Devam Ediyor',
       step: 3,
-      est: '~15 Dakika (Göz Önünde)',
+      est: 'Hızlı Servis (Göz Önünde)',
       tech: 'Murat Usta'
     },
     'CPH-5120': {

@@ -77,6 +77,7 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
+  padding-top: 74px;
   padding-bottom: 80px;
   -webkit-font-smoothing: antialiased;
 }
@@ -278,15 +279,19 @@ body {
 
 /* Navbar */
 .navbar-wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  will-change: transform;
 }
 .navbar-wrapper.nav-hidden {
   transform: translateY(-100%);
