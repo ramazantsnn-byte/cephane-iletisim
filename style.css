@@ -578,7 +578,8 @@ body {
   box-shadow: var(--shadow-card), 0 0 60px rgba(0, 229, 255, 0.18);
   border: 1px solid #e2e8f0;
 }
-.hero-img-main {
+.hero-img-main,
+.hero-video-main {
   width: 100%;
   height: 440px;
   object-fit: cover;

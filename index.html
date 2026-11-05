@@ -169,7 +169,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <link rel="stylesheet" href="style.css?v=20261105_foldable_img_v10">
+  <link rel="stylesheet" href="style.css?v=20261105_hero_video_v12">
 </head>
 <body>
 
@@ -290,10 +290,12 @@
         </div>
       </div>
 
-      <!-- Hero Visual (Gerçek Cihaz ve Vitrin Görseli) -->
+      <!-- Hero Visual (Gerçek Cihaz ve Vitrin Görseli / Video) -->
       <div class="hero-visual">
         <div class="visual-frame">
-          <img src="assets/hero_devices.jpg" alt="CepHane İletişim Cihaz Vitrini" class="hero-img-main">
+          <video class="hero-img-main hero-video-main" autoplay loop muted playsinline preload="metadata">
+            <source src="assets/cephane_google_review_loop.mp4?v=20261105_hero_video_v11" type="video/mp4">
+          </video>
           
           <div class="visual-floating-badge">
             <img src="assets/logo.png?v=20261105_centered_logo" alt="CepHane Logo" class="badge-mini-logo">
@@ -1515,12 +1517,11 @@
       </div>
 
       <div class="google-star-video-showcase">
-        <!-- KATLANABİLİR CIHAZ VE CEPHANE SHOWCASE GÖRSELİ -->
-        <div class="gsv-visual-container">
-          <picture>
-            <source srcset="assets/cephane_foldable_showcase.webp?v=20261105_foldable_v1" type="image/webp">
-            <img src="assets/cephane_foldable_showcase.png?v=20261105_foldable_v1" alt="CepHane İletişim Esenyurt - Sivas Kongre Cad. No:54/A" class="gsv-showcase-img" loading="lazy" decoding="async">
-          </picture>
+        <!-- VİDEO OYNATICI (SİNEMATİK DÖNGÜ) -->
+        <div class="gsv-video-container">
+          <video class="gsv-video-player" autoplay loop muted playsinline preload="metadata">
+            <source src="assets/cephane_google_review_loop.mp4?v=20261105_video_restored_v11" type="video/mp4">
+          </video>
         </div>
 
         <!-- GOOGLE PUAN & DOĞRULAMA KARTI -->
